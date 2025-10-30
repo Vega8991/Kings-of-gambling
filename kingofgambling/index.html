@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tragaperras</title>
+    <title>King Of Gambling</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="slot-machine">
-        <h1>🎰 Tragaperras</h1>
+        <h1>King of Gambling</h1>
+        
+        <!-- Sección para añadir nombres -->
+        <div class="name-input-section">
+            <input type="text" id="nameInput" placeholder="Introduce un nombre" maxlength="20">
+            <button id="addNameButton">AÑADIR</button>
+        </div>
+        
+        <!-- Lista de nombres -->
+        <div class="names-list-container">
+            <h3>Jugadores</h3>
+            <ul id="namesList"></ul>
+            <p id="namesCount">0 jugadores</p>
+        </div>
+        
+        <!-- Rodillos de la tragaperras -->
         <div class="reels-container">
             <div class="reel" id="reel1">
                 <div class="symbols" id="symbols1"></div>
@@ -20,10 +35,12 @@
                 <div class="symbols" id="symbols3"></div>
             </div>
         </div>
-        <button id="spinButton">GIRAR</button>
+        
+        <button id="spinButton" disabled>GIRAR</button>
         <div id="result"></div>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
+
 

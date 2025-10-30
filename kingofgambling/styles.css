@@ -11,6 +11,7 @@ body {
     min-height: 100vh;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     font-family: Arial, sans-serif;
+    padding: 20px;
 }
 
 .slot-machine {
@@ -19,6 +20,8 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     text-align: center;
+    max-width: 600px;
+    width: 100%;
 }
 
 h1 {
@@ -27,6 +30,115 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* Sección de input de nombres */
+.name-input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+#nameInput {
+    flex: 1;
+    max-width: 300px;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #ffd700;
+    border-radius: 25px;
+    background: #fff;
+    color: #2a2a2a;
+    outline: none;
+}
+
+#nameInput:focus {
+    border-color: #ffed4e;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+#addNameButton {
+    background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(76, 175, 80, 0.4);
+    transition: all 0.3s ease;
+}
+
+#addNameButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.6);
+}
+
+#addNameButton:active {
+    transform: translateY(0);
+}
+
+/* Contenedor de lista de nombres */
+.names-list-container {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.names-list-container h3 {
+    color: #ffd700;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+#namesList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+#namesList li {
+    background: #333;
+    color: #fff;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+#namesList li:hover {
+    background: #444;
+}
+
+.delete-btn {
+    background: #ff4444;
+    border: none;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #cc0000;
+    transform: scale(1.1);
+}
+
+#namesCount {
+    color: #ffd700;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Rodillos */
 .reels-container {
     display: flex;
     gap: 10px;
@@ -62,7 +174,6 @@ h1 {
     border-bottom: 2px solid #eee;
 }
 
-/* ESTILOS PARA LAS IMÁGENES PNG */
 .symbol-image {
     width: 100px;
     height: 100px;
@@ -97,12 +208,12 @@ h1 {
     transition: all 0.3s ease;
 }
 
-#spinButton:hover {
+#spinButton:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: 0 7px 20px rgba(255, 215, 0, 0.6);
 }
 
-#spinButton:active {
+#spinButton:active:not(:disabled) {
     transform: translateY(0);
 }
 
@@ -110,6 +221,7 @@ h1 {
     background: #666;
     cursor: not-allowed;
     box-shadow: none;
+    opacity: 0.5;
 }
 
 #result {
@@ -120,7 +232,6 @@ h1 {
     min-height: 30px;
 }
 
-/* Imagen en el resultado */
 .result-image {
     width: 50px;
     height: 50px;
@@ -128,3 +239,23 @@ h1 {
     vertical-align: middle;
     margin: 0 5px;
 }
+
+/* Scrollbar personalizada para la lista */
+.names-list-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.names-list-container::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 10px;
+}
+
+.names-list-container::-webkit-scrollbar-thumb {
+    background: #ffd700;
+    border-radius: 10px;
+}
+
+.names-list-container::-webkit-scrollbar-thumb:hover {
+    background: #ffed4e;
+}
+
