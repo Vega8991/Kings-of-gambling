@@ -3,44 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>King Of Gambling</title>
+    <title>King Of Gambling - Lobby</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="slot-machine">
+    <div class="lobby-container">
         <h1>King of Gambling</h1>
+        <p class="subtitle">Añade los jugadores y prepárate para la batalla</p>
         
-        <!-- Sección para añadir nombres -->
         <div class="name-input-section">
             <input type="text" id="nameInput" placeholder="Introduce un nombre" maxlength="20">
             <button id="addNameButton">AÑADIR</button>
         </div>
         
-        <!-- Lista de nombres -->
         <div class="names-list-container">
             <h3>Jugadores</h3>
             <ul id="namesList"></ul>
             <p id="namesCount">0 jugadores</p>
         </div>
         
-        <!-- Rodillos de la tragaperras -->
-        <div class="reels-container">
-            <div class="reel" id="reel1">
-                <div class="symbols" id="symbols1"></div>
-            </div>
-            <div class="reel" id="reel2">
-                <div class="symbols" id="symbols2"></div>
-            </div>
-            <div class="reel" id="reel3">
-                <div class="symbols" id="symbols3"></div>
-            </div>
-        </div>
-        
-        <button id="spinButton" disabled>GIRAR</button>
-        <div id="result"></div>
+        <button id="playButton" disabled>¡A JUGAR!</button>
     </div>
-    <script src="script.js"></script>
+    
+    <script>
+        const nameInput = document.getElementById('nameInput');
+        const addNameButton = document.getElementById('addNameButton');
+        const namesList = document.getElementById('namesList');
+        const namesCount = document.getElementById('namesCount');
+        const playButton = document.getElementById('playButton');
+        
+        let playerNames = [];
+
+        function addName() {
+            const name = nameInput.value.trim();
+            if (name === '') {
+                alert('Por favor, introduce un nombre válido');
+                return;
+            }
+            if (playerNames.includes(name)) {
+                alert('Este nombre ya está en la lista');
+                return;
+            }
+            playerNames.push(name);
+            nameInput.value = '';
+            updateNamesList();
+            updatePlayButton();
+        }
+
+        function updateNamesList() {
+            namesList.innerHTML = '';
+            playerNames.forEach((name, index) => {
+                const li = document.createElement('li');
+                li.textContent = name;
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = '✖';
+                deleteBtn.className = 'delete-btn';
+                deleteBtn.onclick = () => removeName(index);
+                li.appendChild(deleteBtn);
+                namesList.appendChild(li);
+            });
+            namesCount.textContent = `${playerNames.length} jugador${playerNames.length !== 1 ? 'es' : ''}`;
+        }
+
+        function removeName(index) {
+            playerNames.splice(index, 1);
+            updateNamesList();
+            updatePlayButton();
+        }
+
+        function updatePlayButton() {
+            playButton.disabled = playerNames.length < 2;
+        }
+
+        function startGame() {
+            // Guardar la lista de nombres en localStorage para pasarla a la otra página
+            localStorage.setItem('playerNames', JSON.stringify(playerNames));
+            // Redireccionar a la página del juego
+            window.location.href = 'game.html';
+        }
+
+        addNameButton.addEventListener('click', addName);
+        nameInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                addName();
+            }
+        });
+        playButton.addEventListener('click', startGame);
+
+        // Limpiar localStorage al cargar para asegurar una nueva partida
+        localStorage.removeItem('playerNames');
+        localStorage.removeItem('eliminatedNames');
+    </script>
 </body>
 </html>
-
-

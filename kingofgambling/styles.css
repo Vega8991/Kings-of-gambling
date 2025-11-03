@@ -9,146 +9,107 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-image: url("images/slot_background2.png");
     font-family: Arial, sans-serif;
     padding: 20px;
 }
 
+/* --- CONTENEDOR PRINCIPAL DEL JUEGO --- */
+.game-wrapper {
+    display: flex;
+    gap: 30px; /* Espacio entre la máquina y la lista lateral */
+    align-items: flex-start; /* Alinea los items al tope */
+}
+
+
+/* --- Columna Izquierda: Slot Machine --- */
 .slot-machine {
-    background: #2a2a2a;
+    background: rgba(42, 42, 42, 0.9);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
     text-align: center;
     max-width: 600px;
     width: 100%;
+    border: 2px solid #ffd700;
 }
 
-h1 {
+.slot-machine h1 {
     color: #ffd700;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Sección de input de nombres */
-.name-input-section {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    justify-content: center;
-}
-
-#nameInput {
-    flex: 1;
-    max-width: 300px;
-    padding: 12px 15px;
-    font-size: 16px;
-    border: 2px solid #ffd700;
-    border-radius: 25px;
-    background: #fff;
-    color: #2a2a2a;
-    outline: none;
-}
-
-#nameInput:focus {
-    border-color: #ffed4e;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-}
-
-#addNameButton {
-    background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
-    border: none;
-    padding: 12px 25px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    border-radius: 25px;
-    cursor: pointer;
-    box-shadow: 0 3px 10px rgba(76, 175, 80, 0.4);
-    transition: all 0.3s ease;
-}
-
-#addNameButton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.6);
-}
-
-#addNameButton:active {
-    transform: translateY(0);
-}
-
-/* Contenedor de lista de nombres */
-.names-list-container {
+/* --- NUEVO: PANTALLA CENTRAL DE RESULTADOS --- */
+.main-display-container {
     background: #1a1a1a;
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 30px;
-    max-height: 200px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #555;
+}
+
+#result {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+#result .result-image {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
+
+/* --- Columna Derecha: Lista de Eliminados --- */
+.sidebar-container {
+    background: rgba(42, 42, 42, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    width: 280px; /* Ancho fijo para la barra lateral */
+    border: 2px solid #ffd700;
+}
+
+.sidebar-container h3 {
+    color: #ffd700;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#eliminatedList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px; /* Más altura para la lista */
     overflow-y: auto;
 }
 
-.names-list-container h3 {
-    color: #ffd700;
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-#namesList {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 10px 0;
-}
-
-#namesList li {
+#eliminatedList li {
     background: #333;
-    color: #fff;
+    color: #aaa;
     padding: 10px 15px;
     margin-bottom: 8px;
     border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease;
+    text-decoration: line-through;
+    text-align: center;
+    font-size: 16px;
 }
 
-#namesList li:hover {
-    background: #444;
-}
 
-.delete-btn {
-    background: #ff4444;
-    border: none;
-    color: white;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
-.delete-btn:hover {
-    background: #cc0000;
-    transform: scale(1.1);
-}
-
-#namesCount {
-    color: #ffd700;
-    font-size: 14px;
-    margin: 0;
-}
-
-/* Rodillos */
+/* --- Rodillos (sin cambios) --- */
 .reels-container {
     display: flex;
     gap: 10px;
     justify-content: center;
     margin-bottom: 30px;
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
 }
-
 .reel {
     width: 120px;
     height: 150px;
@@ -158,44 +119,26 @@ h1 {
     overflow: hidden;
     position: relative;
 }
-
 .symbols {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
+    position: absolute; width: 100%; top: 0; left: 0;
 }
-
 .symbol {
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 2px solid #eee;
+    height: 150px; display: flex; align-items: center; justify-content: center;
 }
-
 .symbol-image {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    display: block;
+    width: 100px; height: 100px; object-fit: contain; display: block;
 }
-
-/* Animación de giro continuo */
 @keyframes spin {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-100%);
-    }
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
 }
-
 .spinning {
     animation: spin 0.1s linear infinite;
 }
 
-#spinButton {
+
+/* --- Botones --- */
+#spinButton, #resetButton {
     background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
     border: none;
     padding: 15px 50px;
@@ -204,58 +147,45 @@ h1 {
     color: #2a2a2a;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-    transition: all 0.3s ease;
+    margin-top: 10px;
 }
 
-#spinButton:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 7px 20px rgba(255, 215, 0, 0.6);
-}
-
-#spinButton:active:not(:disabled) {
-    transform: translateY(0);
+#resetButton {
+     background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+     color: white;
 }
 
 #spinButton:disabled {
     background: #666;
     cursor: not-allowed;
-    box-shadow: none;
     opacity: 0.5;
 }
 
-#result {
-    margin-top: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #ffd700;
-    min-height: 30px;
-}
 
-.result-image {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    vertical-align: middle;
-    margin: 0 5px;
+/* --- Estilos del Lobby (para que no se rompa index.html) --- */
+.lobby-container {
+    background: rgba(42, 42, 42, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    border: 2px solid #ffd700;
 }
+.lobby-container h1 { color: #ffd700; }
+.subtitle { color: #ccc; margin-bottom: 30px; }
+.name-input-section { display: flex; gap: 10px; margin-bottom: 20px; justify-content: center; }
+#nameInput { flex: 1; max-width: 300px; padding: 12px 15px; font-size: 16px; border: 2px solid #ffd700; border-radius: 25px; background: #fff; color: #2a2a2a; outline: none; }
+#addNameButton { background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%); border: none; padding: 12px 25px; font-size: 16px; font-weight: bold; color: white; border-radius: 25px; cursor: pointer; }
+.names-list-container { background: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 30px; max-height: 200px; overflow-y: auto; }
+.names-list-container h3 { color: #ffd700; }
+#namesList li { background: #333; color: #fff; padding: 10px; margin-bottom: 8px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+.delete-btn { background: #ff4444; border: none; color: white; width: 25px; height: 25px; border-radius: 50%; cursor: pointer; }
+#namesCount { color: #ffd700; }
+#playButton { background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); border: none; padding: 15px 50px; font-size: 24px; color: #2a2a2a; border-radius: 50px; cursor: pointer; }
+#playButton:disabled { background: #666; cursor: not-allowed; opacity: 0.5; }
 
-/* Scrollbar personalizada para la lista */
-.names-list-container::-webkit-scrollbar {
-    width: 8px;
-}
 
-.names-list-container::-webkit-scrollbar-track {
-    background: #333;
-    border-radius: 10px;
-}
 
-.names-list-container::-webkit-scrollbar-thumb {
-    background: #ffd700;
-    border-radius: 10px;
-}
-
-.names-list-container::-webkit-scrollbar-thumb:hover {
-    background: #ffed4e;
-}
 
