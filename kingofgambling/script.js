@@ -49,7 +49,6 @@ function removeRandomName() {
 
 // --- Lógica de la Tragaperras (sin cambios en las funciones de animación) ---
 function initReels() {
-    // ... (Esta función no cambia)
     for (let i = 1; i <= reelCount; i++) {
         const symbolsContainer = document.getElementById(`symbols${i}`);
         symbolsContainer.innerHTML = '';
@@ -68,7 +67,6 @@ function initReels() {
 }
 
 function spinReel(reelNumber, duration, targetSymbol) {
-    // ... (Esta función no cambia)
     return new Promise((resolve) => {
         const symbolsContainer = document.getElementById(`symbols${reelNumber}`);
         const allSymbols = symbolsContainer.querySelectorAll('.symbol');
@@ -155,7 +153,6 @@ async function spin() {
         }
 
     } else if (targetSymbol === WIN_SYMBOL) {
-        // --- AQUÍ ESTÁ LA CORRECCIÓN ---
         // 1. Eliminar al último perdedor y añadirlo a la lista de eliminados
         const lastEliminated = removeRandomName(); 
         
