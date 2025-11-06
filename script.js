@@ -70,7 +70,7 @@ document.querySelector('.credits-button').addEventListener('click', function() {
             <div style="display: flex; flex-direction: column; gap: 15px; align-items: center; margin-top: 20px;">
                 <p style="color: white; font-size: 18px; line-height: 1.6;">
                     <strong style="color: #ff006e;">Scrum Master</strong><br>
-                    <span style="font-size: 14px; color: #ccc;">Manuel Vega</span>
+                    <span style="font-size: 14px; color: #ccc;">Manuel Vega Viñuelas</span>
                 </p>
                 <hr style="width: 80%; border: 1px solid #ff006e; opacity: 0.3;">
                 <p style="color: white; font-size: 18px; line-height: 1.6;">
@@ -80,7 +80,7 @@ document.querySelector('.credits-button').addEventListener('click', function() {
                 <hr style="width: 80%; border: 1px solid #ff006e; opacity: 0.3;">
                 <p style="color: white; font-size: 18px; line-height: 1.6;">
                     <strong style="color: #ff006e;">Desarrolladores</strong><br>
-                    <span style="font-size: 14px; color: #ccc;">David Beneito, Guillermo Díaz, Antonio Ginés</span>
+                    <span style="font-size: 14px; color: #ccc;">David Beneito, Guillermo José Suárez, Antonio Ginés</span>
                 </p>
             </div>
         `,
@@ -97,7 +97,7 @@ document.querySelector('.credits-button').addEventListener('click', function() {
     });
 });
 
-// Redirigir a la página de selección de jugadores al hacer clic en Start
+// Redirige a la pagina esta de players
 document.querySelector('.start-button').addEventListener('click', function() {
     window.location.href = 'players.html';
 });

@@ -10,6 +10,7 @@ const playerInput = document.getElementById('playerInput');
 const addPlayerBtn = document.getElementById('addPlayerBtn');
 const playersContainer = document.getElementById('playersContainer');
 const startGameBtn = document.getElementById('startGameBtn');
+const backBtn = document.getElementById('backBtn');
 
 playerInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
@@ -32,8 +33,8 @@ function addPlayer() {
         return;
     }
     
-    if (players.length >= 10) {
-        alert('Máximo 10 jugadores permitidos');
+    if (players.length >= 20) {
+        alert('Máximo 20 jugadores permitidos');
         return;
     }
     
@@ -110,3 +111,7 @@ startGameBtn.addEventListener('click', function() {
     
     console.log('Iniciando juego con los siguientes jugadores:', players);
 });
+
+backBtn.addEventListener('click', () => {
+    window.location.href = 'index.html';
+})
