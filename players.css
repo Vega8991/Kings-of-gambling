@@ -8,7 +8,7 @@ body {
     font-family: Arial, sans-serif;
     height: 100vh;
     overflow: hidden;
-    background-image: url('Imagen\ fondo\ desk.png');
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767247/Imagen_fondo_desk_gbbhx1.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -229,7 +229,7 @@ body {
 }
 
 .start-game-button {
-    background-image: url('start.png');
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/start_ngotti.png');
 }
 
 .game-button:hover {
