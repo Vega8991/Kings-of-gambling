@@ -3,7 +3,7 @@ const symbols = [
     'images/lollipop.png', 'images/martini.png', 'images/skull.png'
 ];
 const reelCount = 3;
-const symbolHeight = 150;
+const symbolHeight = 220; // Ajustado para coincidir con la altura del rodillo
 const spinDuration = 3000;
 const SKULL_SYMBOL = 'images/skull.png';
 const WIN_SYMBOL = 'images/7win.png';
@@ -15,6 +15,7 @@ let eliminatedNames = JSON.parse(localStorage.getItem('eliminatedNames')) || [];
 // --- NUEVOS Y ANTIGUOS SELECTORES ---
 const spinButton = document.getElementById('spinButton');
 const resetButton = document.getElementById('resetButton');
+const leverButton = document.getElementById('leverButton'); // Selector de la palanca
 const eliminatedList = document.getElementById('eliminatedList'); // Ahora es la lista de la derecha
 const resultDiv = document.getElementById('result'); // Ahora es la pantalla central
 
@@ -104,7 +105,11 @@ function spinReel(reelNumber, duration, targetSymbol) {
 }
 
 async function spin() {
+    // Deshabilitar el botón de girar y la palanca
     spinButton.disabled = true;
+    leverButton.style.pointerEvents = 'none';
+    leverButton.style.opacity = '0.5';
+    
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = ''; 
     
@@ -140,16 +145,21 @@ async function spin() {
         
         // Comprobar si después de eliminar solo queda 1
         if (playerNames.length === 1) {
-            // Si solo queda 1, el juego ha terminado. Deshabilitar el botón de girar.
+            // Si solo queda 1, el juego ha terminado. Deshabilitar el botón de girar y la palanca.
             spinButton.disabled = true;
+            leverButton.style.pointerEvents = 'none';
             setTimeout(() => {
                 resultDiv.innerHTML = `🎉 ¡${playerNames[0]} ES EL GANADOR! <img src="${WIN_SYMBOL}" class="result-image" alt="Winner">`;
                 resultDiv.style.color = '#00ff00';
                 spinButton.style.display = 'none';
+                leverButton.style.display = 'none';
                 resetButton.style.display = 'inline-block';
             }, 2500); // Esperar un momento antes de anunciar al ganador
         } else {
+            // Rehabilitar la palanca para el siguiente giro
             spinButton.disabled = false;
+            leverButton.style.pointerEvents = 'auto';
+            leverButton.style.opacity = '1';
         }
 
     } else if (targetSymbol === WIN_SYMBOL) {
@@ -169,6 +179,7 @@ async function spin() {
 
         // Cambiar botones
         spinButton.style.display = 'none';
+        leverButton.style.display = 'none';
         resetButton.style.display = 'inline-block';
     }
 }
@@ -182,6 +193,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    // Eventos para la palanca y botones
+    leverButton.addEventListener('click', spin); // La palanca activa el giro
     spinButton.addEventListener('click', spin);
     resetButton.addEventListener('click', resetGame);
     initReels();

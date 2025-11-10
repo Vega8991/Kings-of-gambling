@@ -60,20 +60,21 @@ body.game-page {
     gap: 0px;
     justify-content: center;
     margin-bottom: 180px; /* Espacio hasta el mensaje */
-    padding-top: 175px;
+    margin-right: 50px;
+    padding-top: 190px; /* Ajustado para subir los rodillos un poco más */
 }
 
 .reel {
-    width: 200px;  /* Ancho de cada rodillo */
-    height: 250px; /* Alto de cada rodillo */
-    background: transparent;
+    width: 145px;  /* Ancho de cada rodillo */
+    height: 220px; /* Alto ampliado para cubrir completamente el hueco */
+    background: rgb(240, 233, 207);
     border: none;
     border-radius: 15px;
     overflow: hidden;
-    position: relative;  
-    width: 200px;  /* Ancho de cada hueco dorado */
-    height: 250px; /* Alto de cada hueco dorado */
-
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .symbols {
@@ -84,15 +85,15 @@ body.game-page {
 }
 
 .symbol {
-    height: 250px; 
+    height: 220px; /* Coincide con la altura del rodillo */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .symbol-image {
-    width: 180px;  /* Tamaño de los iconos */
-    height: 180px;
+    width: 140px;  /* Tamaño de los iconos aumentado */
+    height: 140px;
     object-fit: contain;
 }
 
@@ -132,9 +133,14 @@ body.game-page {
 
 /* BOTONES */
 .buttons-container {
-    display: flex;
+    display: none; /* Ocultado porque ahora usamos la palanca */
     gap: 20px;
     justify-content: center;
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
 }
 
 #spinButton, #resetButton {
@@ -153,6 +159,15 @@ body.game-page {
 #resetButton {
     background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
     color: white;
+    display: none;
+}
+
+#resetButton:not([style*="display: none"]) {
+    display: inline-block !important;
+}
+
+.buttons-container:has(#resetButton:not([style*="display: none"])) {
+    display: flex !important;
 }
 
 #spinButton:hover:not(:disabled), #resetButton:hover {
@@ -175,6 +190,26 @@ body.game-page {
     height: 100%;
     z-index: 2; 
     pointer-events: none; 
+}
+
+/* ÁREA CLICKEABLE DE LA PALANCA */
+.lever-button {
+    position: absolute;
+    top: 280px; /* Ajustar según la posición de la palanca */
+    right: 30px; /* Ajustar según la posición de la palanca */
+    width: 80px;
+    height: 250px;
+    z-index: 3;
+    cursor: pointer;
+    /* Descomentar para debug: background: rgba(255, 0, 0, 0.3); */
+}
+
+.lever-button:hover {
+    opacity: 0.8;
+}
+
+.lever-button:active {
+    transform: translateY(5px);
 }
 
 /* (Cementerio) */
