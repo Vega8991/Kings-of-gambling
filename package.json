@@ -1,0 +1,23 @@
+{
+  "name": "kings-of-gambling",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guille33-dev/Kings-of-gambling.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Guille33-dev/Kings-of-gambling/issues"
+  },
+  "homepage": "https://github.com/Guille33-dev/Kings-of-gambling#readme",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
