@@ -8,7 +8,7 @@ body {
     font-family: Arial, sans-serif;
     height: 100vh;
     overflow: hidden;
-    background-image: url('Imagen\ fondo\ desk.png');
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767247/Imagen_fondo_desk_gbbhx1.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -43,15 +43,15 @@ body {
 }
 
 .start-button {
-    background-image: url('start.png');
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/start_ngotti.png');
 }
 
 .volume-button {
-    background-image: url('Volume.png');
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/Volume_bllhaq.png');
 }
 
 .credits-button {
-    background-image: url('credits.png');
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767247/credits_l4tjwn.png');
 }
 
 .game-button:hover {
@@ -109,9 +109,9 @@ body {
 }
 
 #activarMusica {
-    background-image: url('subir-volumen.png');
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/subir-volumen_zc3bzx.png');
 }
 
 #desactivarMusica {
-    background-image: url('bajar-volumen.png');
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/bajar-volumen_q4uvtd.png');
 }
