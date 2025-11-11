@@ -195,32 +195,65 @@ body.game-page {
 /* ÁREA CLICKEABLE DE LA PALANCA */
 .lever-button {
     position: absolute;
-    top: 280px; /* Ajustar según la posición de la palanca */
-    right: 30px; /* Ajustar según la posición de la palanca */
-    width: 80px;
-    height: 250px;
+    top: 365px;
+    right: 26px;
+    width: 65px;
+    height: 65px; /* Mismo valor que width para crear un círculo perfecto */
+    border-radius: 50%; /* Convierte el elemento en círculo */
     z-index: 3;
     cursor: pointer;
+    box-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.6),
+        0 0 40px rgba(255, 215, 0, 0.4),
+        0 0 60px rgba(255, 215, 0, 0.2);
+    animation: resplandor-pulsante 2s ease-in-out infinite;
     /* Descomentar para debug: background: rgba(255, 0, 0, 0.3); */
+}
+
+@keyframes resplandor-pulsante {
+    0%, 100% {
+        box-shadow: 
+            0 0 20px rgba(255, 215, 0, 0.6),
+            0 0 40px rgba(255, 215, 0, 0.4),
+            0 0 60px rgba(255, 215, 0, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 0 30px rgba(255, 215, 0, 0.8),
+            0 0 60px rgba(255, 215, 0, 0.6),
+            0 0 90px rgba(255, 215, 0, 0.4);
+    }
 }
 
 .lever-button:hover {
     opacity: 0.8;
+    box-shadow: 
+        0 0 40px rgba(255, 215, 0, 0.9),
+        0 0 80px rgba(255, 215, 0, 0.7),
+        0 0 120px rgba(255, 215, 0, 0.5);
 }
 
 .lever-button:active {
     transform: translateY(5px);
+    box-shadow: 
+        0 0 15px rgba(255, 215, 0, 0.8),
+        0 0 30px rgba(255, 215, 0, 0.6);
 }
+
 
 /* (Cementerio) */
 .sidebar-container {
     background: rgba(42, 42, 42, 0.95);
     padding: 25px;
     border-radius: 15px;
-    width: 300px;
-    max-height: 800px;
+    width: 450px; /* Aumentado de 300px a 400px */
+    height: 550px; /* Altura fija para que no se alargue */
     border: 3px solid #ff0000;
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+     ; /* Baja la posición del cementerio */
 }
 
 .sidebar-container h3 {
@@ -229,14 +262,15 @@ body.game-page {
     margin-bottom: 20px;
     font-size: 24px;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    flex-shrink: 0; /* Evita que el título se comprima */
 }
 
 #eliminatedList {
     list-style: none;
     padding: 0;
     margin: 0;
-    max-height: 700px;
-    overflow-y: auto;
+    overflow-y: auto; /* Scroll cuando haya muchos nombres */
+    flex: 1; /* Ocupa el espacio restante */
 }
 
 #eliminatedList li {
