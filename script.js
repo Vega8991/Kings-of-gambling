@@ -1,65 +1,20 @@
-let musicaActivada = false;
+// Control de volumen con un único botón
+let musicaActivada = true;
 
-document.getElementById('volumeBtn').addEventListener('click', function() {
-    Swal.fire({
-        title: 'Configuración de Música',
-        html: `
-            <div style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
-                <p style="color: white; font-size: 18px; margin-bottom: 10px;">
-                    Selecciona una opción:
-                </p>
-                <button id="activarMusica" class="custom-music-button"></button>
-                <button id="desactivarMusica" class="custom-music-button"></button>
-            </div>
-        `,
-        showConfirmButton: false,
-        showCancelButton: false,
-        showCloseButton: true,
-        allowOutsideClick: true,
-        background: 'rgba(20, 20, 20, 0.95)',
-        customClass: {
-            popup: 'swal2-popup',
-            title: 'swal2-title',
-            closeButton: 'swal2-close'
-        },
-        didOpen: () => {
-            document.getElementById('activarMusica').addEventListener('click', function() {
-                musicaActivada = true;
-                Swal.fire({
-                    title: '¡Música Activada!',
-                    text: 'La música de fondo está ahora activa',
-                    icon: 'success',
-                    timer: 2000,
-                    showConfirmButton: false,
-                    background: 'rgba(20, 20, 20, 0.95)',
-                    customClass: {
-                        popup: 'swal2-popup',
-                        title: 'swal2-title'
-                    }
-                });
-                // Aqui le metemos la logica pa agregar la musica
-                console.log('Música activada');
-            });
+const volumeBtn = document.getElementById('volumeBtn');
 
-            document.getElementById('desactivarMusica').addEventListener('click', function() {
-                musicaActivada = false;
-                Swal.fire({
-                    title: 'Música Desactivada',
-                    text: 'La música de fondo ha sido desactivada',
-                    icon: 'info',
-                    timer: 2000,
-                    showConfirmButton: false,
-                    background: 'rgba(20, 20, 20, 0.95)',
-                    customClass: {
-                        popup: 'swal2-popup',
-                        title: 'swal2-title'
-                    }
-                });
-                // Aqui pues desactiva la musica
-                console.log('Música desactivada');
-            });
-        }
-    });
+volumeBtn.addEventListener('click', function() {
+    musicaActivada = !musicaActivada;
+    
+    if (musicaActivada) {
+        volumeBtn.classList.remove('music-off');
+        console.log('Música activada');
+        // Aquí iría la lógica para activar la música
+    } else {
+        volumeBtn.classList.add('music-off');
+        console.log('Música desactivada');
+        // Aquí iría la lógica para desactivar la música
+    }
 });
 
 // SweetAlert para créditos

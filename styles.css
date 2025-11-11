@@ -12,6 +12,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .container {
@@ -23,11 +24,43 @@ body {
     padding: 20px;
 }
 
+.volume-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 130px;
+    height: 130px;
+    border: none;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/bajar-volumen_q4uvtd.png');
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    z-index: 100;
+}
+
+.volume-btn:hover {
+    transform: scale(1.1);
+}
+
+.volume-btn:active {
+    transform: scale(0.95);
+}
+
+.volume-btn.music-off {
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/subir-volumen_zc3bzx.png');
+}
+
 .buttons-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 .game-button {
@@ -46,10 +79,6 @@ body {
 
 .start-button {
     background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/start_ngotti.png');
-}
-
-.volume-button {
-    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/Volume_bllhaq.png');
 }
 
 .credits-button {
@@ -129,7 +158,15 @@ body {
         padding: 15px;
     }
     
+    .volume-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 90px;
+        height: 90px;
+    }
+    
     .buttons-container {
+        flex-direction: column;
         gap: 15px;
         width: 100%;
     }
