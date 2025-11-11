@@ -1,23 +1,33 @@
-// Control de volumen con un único botón
+const backgroundMusic = document.getElementById('backgroundMusic');
+const volumeBtn = document.getElementById('volumeBtn');
 let musicaActivada = true;
 
-const volumeBtn = document.getElementById('volumeBtn');
+window.addEventListener('load', function() {
+    backgroundMusic.play().then(() => {
+        console.log('Música iniciada automáticamente');
+        musicaActivada = true;
+        volumeBtn.classList.remove('music-off');
+    }).catch((error) => {
+        console.log('La reproducción automática fue bloqueada. Haz clic en el botón para iniciar la música.');
+        musicaActivada = false;
+        volumeBtn.classList.add('music-off');
+    });
+});
 
 volumeBtn.addEventListener('click', function() {
     musicaActivada = !musicaActivada;
     
     if (musicaActivada) {
+        backgroundMusic.play();
         volumeBtn.classList.remove('music-off');
         console.log('Música activada');
-        // Aquí iría la lógica para activar la música
     } else {
+        backgroundMusic.pause();
         volumeBtn.classList.add('music-off');
         console.log('Música desactivada');
-        // Aquí iría la lógica para desactivar la música
     }
 });
 
-// SweetAlert para créditos
 document.querySelector('.credits-button').addEventListener('click', function() {
     Swal.fire({
         title: 'Desarrolladores',
@@ -52,7 +62,6 @@ document.querySelector('.credits-button').addEventListener('click', function() {
     });
 });
 
-// Redirige a la pagina esta de players
 document.querySelector('.start-button').addEventListener('click', function() {
     window.location.href = 'players.html';
 });
