@@ -108,20 +108,29 @@ body.game-page {
 
 /* MENSAJE DE RESULTADO */
 .result-display {
-    width: 600px; /* Ancho del hueco blanco */
-    height: 120px; /* Alto del hueco blanco */
+    width: 500px; /* Ancho del hueco blanco */
+    height: 260px; /* Alto del hueco blanco */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 800px;
+    margin-right: 70px;
+    background: rgba(240, 233, 207); /* Fondo morado con transparencia */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 55px; /* Espaciado interno */
 }
 
 #result {
     font-size: 28px;
     font-weight: bold;
-    color: #ff0000;
+    color: #980303;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que el contenido se ajuste si es necesario */
 }
 
 .result-image {
@@ -137,7 +146,7 @@ body.game-page {
     gap: 20px;
     justify-content: center;
     position: absolute;
-    bottom: 200px;
+    bottom: 1px; /* Cambiado de 200px a 80px para bajar el botón */
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
