@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767247/Imagen_fondo_desk_gbbhx1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.volume-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 130px;
+    height: 130px;
+    border: none;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/bajar-volumen_q4uvtd.png');
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    z-index: 100;
+}
+
+.volume-btn:hover {
+    transform: scale(1.1);
+}
+
+.volume-btn:active {
+    transform: scale(0.95);
+}
+
+.volume-btn.music-off {
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/subir-volumen_zc3bzx.png');
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.game-button {
+    width: 350px;
+    height: 200px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.3s ease;
+    padding: 0;
+    outline: none;
+}
+
+.start-button {
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/start_ngotti.png');
+}
+
+.credits-button {
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767247/credits_l4tjwn.png');
+}
+
+.game-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    filter: brightness(1.1);
+}
+
+.game-button:active {
+    transform: translateY(-2px) scale(1.02);
+    filter: brightness(0.95);
+}
+
+.swal2-popup {
+    background: rgba(20, 20, 20, 0.95);
+    border: 2px solid #ff006e;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.swal2-title {
+    color: #ff006e;
+    font-size: 32px;
+    text-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+}
+
+.swal2-html-container {
+    color: white;
+}
+
+.swal2-actions {
+    gap: 20px;
+}
+
+.custom-music-button {
+    width: 250px;
+    height: 80px;
+    border: none;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+.custom-music-button:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+.custom-music-button:active {
+    transform: scale(1.02);
+    filter: brightness(0.9);
+}
+
+#activarMusica {
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/subir-volumen_zc3bzx.png');
+}
+
+#desactivarMusica {
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/bajar-volumen_q4uvtd.png');
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    
+    .container {
+        min-height: 100vh;
+        padding: 15px;
+    }
+    
+    .volume-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 90px;
+        height: 90px;
+    }
+    
+    .buttons-container {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .game-button {
+        width: 220px;
+        height: 125px;
+        max-width: 90vw;
+    }
+    
+    .swal2-popup {
+        padding: 20px;
+        width: 95%;
+        border-radius: 15px;
+    }
+    
+    .swal2-title {
+        font-size: 22px;
+    }
+    
+    .swal2-html-container {
+        font-size: 14px;
+    }
+    
+    .custom-music-button {
+        width: 180px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .game-button {
+        width: 180px;
+        height: 105px;
+    }
+    
+    .swal2-title {
+        font-size: 20px;
+    }
+    
+    .custom-music-button {
+        width: 150px;
+        height: 50px;
+    }
+}
