@@ -113,5 +113,5 @@ startGameBtn.addEventListener('click', function() {
 });
 
 backBtn.addEventListener('click', () => {
-    window.location.href = 'index.html';
+    window.location.href = 'init.html';
 })
