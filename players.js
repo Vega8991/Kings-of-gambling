@@ -109,9 +109,13 @@ startGameBtn.addEventListener('click', function() {
         return;
     }
     
+    // Guardar jugadores en localStorage y redirigir al juego
+    savePlayersToStorage();
+    localStorage.setItem('playerNames', JSON.stringify(players));
     console.log('Iniciando juego con los siguientes jugadores:', players);
+    window.location.href = 'game.html';
 });
 
 backBtn.addEventListener('click', () => {
-    window.location.href = 'init.html';
+    window.location.href = 'Init.html';
 })
