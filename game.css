@@ -257,8 +257,8 @@ body.game-page {
     border-radius: 15px;
     width: 450px; /* Aumentado de 300px a 400px */
     height: 550px; /* Altura fija para que no se alargue */
-    border: 3px solid #ff0000;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    border: 3px solid #ff006e;
+    box-shadow: 0 0 20px #ff006e(255, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     margin-top: 30px;
