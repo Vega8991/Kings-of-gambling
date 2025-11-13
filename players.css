@@ -465,12 +465,13 @@ body {
 }
 
 .return-page-btn {
+    /*
     position: fixed;
     top: 20px;
     left: 20px;
     width: 65px;
     height: 65px;
-    background-image: url('https://res.cloudinary.com/dahfnhc1h/image/upload/v1763050432/ChatGPT_Image_10_nov_2025_11_22_03_1_1_aruqoj.png');
+    
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -479,6 +480,23 @@ body {
     cursor: pointer;
     transition: transform 0.15s ease;
     z-index: 1500; 
+*/
+    
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    background-image: url('https://res.cloudinary.com/dahfnhc1h/image/upload/v1763050432/ChatGPT_Image_10_nov_2025_11_22_03_1_1_aruqoj.png');
+    border: none;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    z-index: 100;
 }
 
 .return-page-btn:hover {
@@ -491,8 +509,8 @@ body {
 
 @media screen and (max-width: 480px) {
     .return-page-btn {
-        width: 50px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
         top: 12px;
         left: 12px;
     }
