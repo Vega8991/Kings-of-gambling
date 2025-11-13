@@ -25,6 +25,13 @@ let spinDuration = 3000;
 let SKULL_SYMBOL = 'https://res.cloudinary.com/dsstkg5fn/image/upload/v1762948687/skull_cgo9ps.png';
 let WIN_SYMBOL = 'https://res.cloudinary.com/dsstkg5fn/image/upload/v1762948684/7win_xttuzb.png';
 
+let returnPageBtn = document.getElementById('returnPageBtn');
+
+returnPageBtn.addEventListener('click', function() {
+    window.location.href = 'Init.html';
+});
+
+
 let gameMusic = document.getElementById('gameMusic');
 let volumeBtn = document.getElementById('volumeBtn');
 let musicEnabled = false;
