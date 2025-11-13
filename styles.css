@@ -1,0 +1,386 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+body.lobby-page {
+    background-image: url("https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767247/Imagen_fondo_desk_gbbhx1.png"); 
+}
+
+body.game-page {
+    background-image: url("https://res.cloudinary.com/dsstkg5fn/image/upload/v1762948688/slot_background4_oduhv4.png");
+}
+
+/* BOTÓN DE VOLUMEN EN GAME PAGE */
+.volume-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 130px;
+    height: 130px;
+    border: none;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/bajar-volumen_q4uvtd.png');
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    z-index: 200;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.volume-btn:hover {
+    transform: scale(1.1);
+}
+
+.volume-btn:active {
+    transform: scale(0.95);
+}
+
+.volume-btn.music-off {
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/subir-volumen_zc3bzx.png');
+}
+
+.volume-controls {
+    position: fixed;
+    bottom: 80px;
+    right: 180px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 200;
+}
+
+.volume-slider {
+    width: 150px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: all 0.3s ease;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ff006e;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.8);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ff006e;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+}
+
+.volume-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.8);
+}
+
+.volume-slider:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* CONTENEDOR PRINCIPAL DEL JUEGO */
+.game-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    max-height: 95vh;
+}
+
+/* CONTENEDOR DE LA MÁQUINA */
+.slot-machine-container {
+    position: relative;
+    width: 552px;  /* 75% del ancho original (736 * 0.75) */
+    height: 828px; /* 75% del alto original (1104 * 0.75) */
+    flex-shrink: 0;
+}
+
+/* ELEMENTOS INTERACTIVOS */
+.game-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Debajo de la imagen */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 210px; /* 75% de 280px */
+}
+
+/* RODILLOS */
+.reels-container {
+    display: flex;
+    gap: 0px;
+    justify-content: center;
+    margin-bottom: 135px; /* 75% de 180px */
+    margin-right: 37.5px; /* 75% de 50px */
+    padding-top: 142.5px; /* 75% de 190px */
+}
+
+.reel {
+    width: 109px;  /* 75% de 145px */
+    height: 165px; /* 75% de 220px */
+    background: rgb(240, 233, 207);
+    border: none;
+    border-radius: 11px; /* 75% de 15px */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.symbols {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    will-change: transform;
+}
+
+.symbol {
+    height: 165px; /* 75% de 220px - Coincide con la altura del rodillo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    opacity: 1;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.symbol-image {
+    width: 105px;  /* 75% de 140px */
+    height: 105px;
+    object-fit: contain;
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes spin {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
+}
+
+.spinning {
+    animation: spin 0.1s linear infinite;
+}
+
+/* MENSAJE DE RESULTADO */
+.result-display {
+    width: 450px; /* 75% de 600px */
+    height: 90px; /* 75% de 120px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px; /* 75% de 40px */
+}
+
+#result {
+    font-size: 21px;
+    font-weight: bold;
+    color: #ff0000;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 5px;
+    line-height: 1.3;
+}
+
+#result img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+
+
+/* IMAGEN DE LA MÁQUINA */
+.slot-machine-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; 
+    pointer-events: none; 
+}
+
+/* ÁREA CLICKEABLE DE LA PALANCA */
+.lever-button {
+    position: absolute;
+    top: 274px; /* 75% de 365px */
+    right: 19.5px; /* 75% de 26px */
+    width: 49px; /* 75% de 65px */
+    height: 49px; /* Mismo valor que width para crear un círculo perfecto */
+    border-radius: 50%; /* Convierte el elemento en círculo */
+    z-index: 3;
+    cursor: pointer;
+    box-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.6),
+        0 0 40px rgba(255, 215, 0, 0.4),
+        0 0 60px rgba(255, 215, 0, 0.2);
+    animation: resplandor-pulsante 2s ease-in-out infinite;
+    /* Descomentar para debug: background: rgba(255, 0, 0, 0.3); */
+}
+
+@keyframes resplandor-pulsante {
+    0%, 100% {
+        box-shadow: 
+            0 0 20px rgba(255, 215, 0, 0.6),
+            0 0 40px rgba(255, 215, 0, 0.4),
+            0 0 60px rgba(255, 215, 0, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 0 30px rgba(255, 215, 0, 0.8),
+            0 0 60px rgba(255, 215, 0, 0.6),
+            0 0 90px rgba(255, 215, 0, 0.4);
+    }
+}
+
+.lever-button:hover {
+    opacity: 0.8;
+    box-shadow: 
+        0 0 40px rgba(255, 215, 0, 0.9),
+        0 0 80px rgba(255, 215, 0, 0.7),
+        0 0 120px rgba(255, 215, 0, 0.5);
+}
+
+.lever-button:active {
+    transform: translateY(5px);
+    box-shadow: 
+        0 0 15px rgba(255, 215, 0, 0.8),
+        0 0 30px rgba(255, 215, 0, 0.6);
+}
+
+
+/* (Cementerio) */
+.sidebar-container {
+    background: rgba(42, 42, 42, 0.95);
+    padding: 25px;
+    border-radius: 15px;
+    width: 350px;
+    max-height: 90vh;
+    border: 3px solid #ff0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.sidebar-container h3 {
+    color: #ff0000;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    flex-shrink: 0; /* Evita que el título se comprima */
+}
+
+#eliminatedList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto; /* Scroll cuando haya muchos nombres */
+    flex: 1; /* Ocupa el espacio restante */
+}
+
+#eliminatedList li {
+    background: #1a1a1a;
+    color: #888;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    text-decoration: line-through;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #444;
+}
+
+/* Tablets (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .game-wrapper {
+        gap: 20px;
+    }
+    
+    .sidebar-container {
+        width: 300px;
+    }
+    
+    .volume-btn {
+        width: 100px;
+        height: 100px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Desktop (min-width: 1024px) */
+@media screen and (min-width: 1024px) {
+    .game-wrapper {
+        gap: 40px;
+    }
+    
+    .sidebar-container {
+        width: 350px;
+    }
+    
+    .volume-btn {
+        width: 130px;
+        height: 130px;
+        bottom: 30px;
+        right: 30px;
+    }
+}
