@@ -93,33 +93,33 @@ if (volumeSlider && backgroundMusic) {
 }
 document.querySelector('.instructions-button').addEventListener('click', function () {
     Swal.fire({
-        title: '📋 Instrucciones',
+        title: 'Instructions',
         html: `
             <div style="display: flex; flex-direction: column; gap: 20px; align-items: flex-start; margin-top: 20px; text-align: left;">
                 <p style="color: white; font-size: 16px; line-height: 1.8;">
-                    <strong style="color: #ff006e;">Objetivo del Juego:</strong><br>
-                    <span style="font-size: 14px; color: #ccc;">Ser el último jugador en pie. La máquina tragaperras eliminará jugadores uno por uno hasta que quede un ganador.</span>
+                    <strong style="color: #ff006e;">Game objective:</strong><br>
+                    <span style="font-size: 14px; color: #ccc;">Be the last player standing. The slot machine will eliminate players one by one until there is only one winner left.</span>
                 </p>
                 <hr style="width: 100%; border: 1px solid #ff006e; opacity: 0.3;">
                 <p style="color: white; font-size: 16px; line-height: 1.8;">
-                    <strong style="color: #ff006e;">Añadir Jugadores:</strong><br>
-                    <span style="font-size: 14px; color: #ccc;">1. Haz clic en el botón "START"<br>
-                    2. Introduce los nombres de los jugadores (mínimo 2, máximo 20)<br>
-                    3. Pulsa "Comenzar Juego" cuando estés listo</span>
+                    <strong style="color: #ff006e;">Adding players:</strong><br>
+                    <span style="font-size: 14px; color: #ccc;">1. Click on the START button<br>
+                    2. Enter the names of the players (min 2, max 20)<br>
+                    3. Press start when you are ready</span>
                 </p>
                 <hr style="width: 100%; border: 1px solid #ff006e; opacity: 0.3;">
                 <p style="color: white; font-size: 16px; line-height: 1.8;">
-                    <strong style="color: #ff006e;">Cómo Jugar:</strong><br>
-                    <span style="font-size: 14px; color: #ccc;">1. Haz clic en la palanca de la máquina tragaperras<br>
-                    2. Los rodillos girarán y mostrarán símbolos<br>
-                    3. Si aparecen calaveras, un jugador será eliminado<br>
-                    4. Los jugadores eliminados aparecerán en el "Cementerio"<br>
-                    5. Continúa hasta que quede un solo ganador</span>
+                    <strong style="color: #ff006e;">How to play:</strong><br>
+                    <span style="font-size: 14px; color: #ccc;">1. Click on the slot machine lever<br>
+                    2. The reels will spin and show symbols<br>
+                    3. If skulls appear, a player will be eliminated<br>
+                    4. Eliminated players will appear in the cementery<br>
+                    5. Continue playing until only one winner remains</span>
                 </p>
                 <hr style="width: 100%; border: 1px solid #ff006e; opacity: 0.3;">
                 <p style="color: white; font-size: 16px; line-height: 1.8;">
-                    <strong style="color: #ff006e;">Controles:</strong><br>
-                    <span style="font-size: 14px; color: #ccc;">Usa el botón de volumen en la esquina inferior derecha para activar/desactivar la música de fondo.</span>
+                    <strong style="color: #ff006e;">Controls:</strong><br>
+                    <span style="font-size: 14px; color: #ccc;">Use the volume button in the bottom right corner to turn the background music on or off.</span>
                 </p>
             </div>
         `,
