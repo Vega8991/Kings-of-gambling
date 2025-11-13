@@ -464,29 +464,12 @@ body {
     background: rgba(255, 255, 255, 0.4);
 }
 
-.return-page-btn {
-    /*
+.return-page-btn {   
     position: fixed;
     top: 20px;
     left: 20px;
-    width: 65px;
-    height: 65px;
-    
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.15s ease;
-    z-index: 1500; 
-*/
-    
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 100px;
-    height: 100px;
+    width: 170px;
+    height: 170px;
     background-image: url('https://res.cloudinary.com/dahfnhc1h/image/upload/v1763050432/ChatGPT_Image_10_nov_2025_11_22_03_1_1_aruqoj.png');
     border: none;
     background-color: transparent;
