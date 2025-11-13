@@ -115,7 +115,7 @@ body.game-page {
     justify-content: center;
     margin-bottom: 800px;
     margin-right: 70px;
-    background: rgba(240, 233, 207); /* Fondo morado con transparencia */
+    background: rgb(242, 240, 235); /* Fondo morado con transparencia */
     border-radius: 15px; /* Bordes redondeados */
     padding: 55px; /* Espaciado interno */
 }

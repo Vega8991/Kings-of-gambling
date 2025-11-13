@@ -462,6 +462,15 @@ body.game-page {
         right: 20px;
         z-index: 200 !important;
     }
+    
+    .volume-controls {
+        bottom:55px;  /* Posiciona más abajo, cerca del volumeBtn */
+        right: 120px;  /* Más cerca del botón */
+    }
+    
+    .volume-slider {
+        width: 100px;  /* Más pequeño en móvil */
+    }
 }
 
 /* Móviles pequeños (361px - 390px) - iPhone SE 2020, iPhone 12 Mini */
@@ -535,5 +544,14 @@ body.game-page {
         height: 70px;
         bottom: 12px;
         right: 12px;
+    }
+    
+    .volume-controls {
+        bottom: 43px;  /* Posiciona más abajo */
+        right: 96px;   /* Más cerca del botón pequeño */
+    }
+    
+    .volume-slider {
+        width: 90px;   /* Más pequeño para móviles pequeños */
     }
 }
