@@ -67,6 +67,14 @@ if (backgroundMusic) {
     });
 }
 
+// Guardar estado antes de salir de la página
+window.addEventListener('beforeunload', function() {
+    if (backgroundMusic && !backgroundMusic.paused) {
+        localStorage.setItem('musicCurrentTime', backgroundMusic.currentTime);
+        localStorage.setItem('musicaActivada', 'true');
+    }
+});
+
 window.addEventListener('load', function() {
     updateVolumeButton();
     tryPlayMusic();
@@ -245,13 +253,13 @@ startGameBtn.addEventListener('click', function() {
     let playersText = JSON.stringify(players);
     localStorage.setItem('playerNames', playersText);
     console.log('Iniciando juego con los siguientes jugadores:', players);
-    window.location.href = 'game.html';
+    window.location.href = '../Game/game.html';
 });
 
 backBtn.addEventListener('click', function() {
-    window.location.href = 'Init.html';
+    window.location.href = '../Init/Init.html';
 });
 
 returnPageBtn.addEventListener('click', function() {
-    window.location.href = 'Init.html';
+    window.location.href = '../Init/Init.html';
 });

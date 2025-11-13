@@ -37,6 +37,11 @@ function tryPlayMusic() {
             console.log('Music playing');
         }).catch(function(error) {
             console.log('Autoplay blocked, waiting for user interaction');
+            // Intentar reproducir en el primer click
+            document.addEventListener('click', function playOnFirstClick() {
+                backgroundMusic.play();
+                document.removeEventListener('click', playOnFirstClick);
+            }, { once: true });
         });
     }
 }
@@ -49,6 +54,14 @@ if (backgroundMusic) {
         }
     });
 }
+
+// Guardar estado antes de salir de la página
+window.addEventListener('beforeunload', function() {
+    if (backgroundMusic && !backgroundMusic.paused) {
+        localStorage.setItem('musicCurrentTime', backgroundMusic.currentTime);
+        localStorage.setItem('musicaActivada', 'true');
+    }
+});
 
 window.addEventListener('load', function() {
     updateVolumeButton();
@@ -185,5 +198,5 @@ document.querySelector('.credits-button').addEventListener('click', function () 
 });
 
 document.querySelector('.start-button').addEventListener('click', function () {
-    window.location.href = 'players.html';
+    window.location.href = '../Players/players.html';
 });

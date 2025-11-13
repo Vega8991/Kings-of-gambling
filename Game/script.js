@@ -75,6 +75,14 @@ if (gameMusic) {
     });
 }
 
+// Guardar estado antes de salir de la página
+window.addEventListener('beforeunload', function() {
+    if (gameMusic && !gameMusic.paused) {
+        localStorage.setItem('musicCurrentTime', gameMusic.currentTime);
+        localStorage.setItem('musicaActivada', 'true');
+    }
+});
+
 if (volumeBtn) {
     volumeBtn.addEventListener('click', function() {
         if (musicEnabled === true) {
@@ -140,7 +148,7 @@ function showEliminatedPlayers() {
 function restartGame() {
     localStorage.removeItem('playerNames');
     localStorage.removeItem('eliminatedNames');
-    window.location.href = 'Init.html';
+    window.location.href = '../Init/Init.html';
 }
 
 function eliminateRandomPlayer() {
@@ -352,7 +360,7 @@ async function spin() {
 document.addEventListener('DOMContentLoaded', () => {
     if (playerNames.length < 2) {
         alert('No hay suficientes jugadores. Añade al menos 2.');
-        window.location.href = 'players.html';
+        window.location.href = '../Players/players.html';
         return;
     }
 
