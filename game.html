@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>King Of Gambling - El Juego</title>
-    <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="game-page">
+    <audio id="gameMusic" loop>
+        <source src="wheelofdoom.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <div class="volume-controls">
+        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="25">
+    </div>
+    <button class="volume-btn" id="volumeBtn" title="Controlar música"></button>
+
     <div class="game-wrapper">
         
         <!-- CONTENEDOR PRINCIPAL DE LA MÁQUINA CON OVERLAY -->
@@ -35,14 +45,14 @@
                 
                 <!-- BOTONES (debajo de la máquina) -->
                 <div class="buttons-container">
-                    <button id="spinButton">GIRAR</button>
+                    <button id="spinButton" style="display: none;">GIRAR</button>
                     <button id="resetButton" style="display: none;">VOLVER A JUGAR</button>
                 </div>
                 
             </div>
 
             <!-- IMAGEN DE LA MÁQUINA -->
-            <img src="images/cover_machine.png" alt="Máquina Tragaperras" class="slot-machine-overlay">
+            <img src="https://res.cloudinary.com/dsstkg5fn/image/upload/v1762948685/cover_machine_std1uj.png" alt="Máquina Tragaperras" class="slot-machine-overlay">
             
             <!-- ÁREA CLICKEABLE DE LA PALANCA -->
             <div id="leverButton" class="lever-button"></div>

@@ -374,3 +374,92 @@ body {
         height: 105px;
     }
 }
+
+.volume-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 130px;
+    height: 130px;
+    border: none;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/bajar-volumen_q4uvtd.png');
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    z-index: 100;
+}
+
+.volume-btn:hover {
+    transform: scale(1.1);
+}
+
+.volume-btn:active {
+    transform: scale(0.95);
+}
+
+.volume-btn.music-off {
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/subir-volumen_zc3bzx.png');
+}
+
+.volume-controls {
+    position: absolute;
+    bottom: 80px;
+    right: 180px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 100;
+}
+
+.volume-slider {
+    width: 150px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: all 0.3s ease;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ff006e;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.8);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ff006e;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+}
+
+.volume-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.8);
+}
+
+.volume-slider:hover {
+    background: rgba(255, 255, 255, 0.4);
+}

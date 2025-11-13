@@ -9,13 +9,17 @@
 </head>
 <body>
     <audio id="backgroundMusic" loop>
-        <source src="musica.mp3" type="audio/mpeg">
+        <source src="wheelofdoom.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>
 
     <div class="container">
+        <div class="volume-controls">
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="25">
+        </div>
         <button class="volume-btn" id="volumeBtn" title="Controlar música"></button>
         <div class="buttons-container">
+            <button class="game-button instructions-button"></button>
             <button class="game-button start-button"></button>
             <button class="game-button credits-button"></button>
         </div>

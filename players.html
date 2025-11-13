@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="players.css">
 </head>
 <body>
+    <audio id="backgroundMusic" loop>
+        <source src="wheelofdoom.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <div class="volume-controls">
+        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="25">
+    </div>
+    <button class="volume-btn" id="volumeBtn" title="Controlar música"></button>
+
     <div class="container">
         <div class="players-panel">
             <button class="backBtn" id="backBtn">x</button>
