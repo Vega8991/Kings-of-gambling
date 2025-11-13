@@ -349,11 +349,10 @@ body.game-page {
     border: 1px solid #444;
 }
 
-
-/* Tablets landscape y desktop pequeño (769px - 1024px) */
-@media screen and (max-width: 1024px) {
+/* Tablets (max-width: 768px) */
+@media screen and (max-width: 768px) {
     .game-wrapper {
-        gap: 30px;
+        gap: 20px;
     }
     
     .sidebar-container {
@@ -361,179 +360,27 @@ body.game-page {
     }
     
     .volume-btn {
-        width: 110px;
-        height: 110px;
-        bottom: 25px;
-        right: 25px;
-    }
-}
-
-
-/* Móviles estándar (391px - 480px) - iPhone 12/13/14 Pro, Samsung S21 */
-@media screen and (max-width: 480px) {
-    body {
-        padding: 8px 5px;
-    }
-    
-    .game-wrapper {
-        gap: 15px;
-        padding: 5px 0;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .sidebar-container {
-        display: none !important;
-    }
-    
-    /* Escala: 60% del original */
-    .slot-machine-container {
-        width: 331px;  /* 552 * 0.6 */
-        height: 497px; /* 828 * 0.6 */
-    }
-    
-    .game-elements {
-        padding-top: 126px; /* 210 * 0.6 */
-    }
-    
-    .reels-container {
-        margin-bottom: 81px;  /* 135 * 0.6 */
-        margin-right: 23px;   /* 37.5 * 0.6 */
-        padding-top: 86px;    /* 142.5 * 0.6 */
-    }
-    
-    .reel {
-        width: 65px;  /* 109 * 0.6 */
-        height: 99px; /* 165 * 0.6 */
-        border-radius: 7px;
-    }
-    
-    .symbol {
-        height: 99px;
-    }
-    
-    .symbol-image {
-        width: 63px;  /* 105 * 0.6 */
-        height: 63px;
-    }
-    
-    .result-display {
-        width: 310px;
-        max-width: 90%;
-        height: auto;
-        min-height: 70px;
-        max-height: 150px;
-        margin-bottom: 18px;
-        padding: 12px 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-    }
-    
-    #result {
-        font-size: 14px !important;
-        line-height: 1.4 !important;
-        padding: 8px 5px !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        gap: 5px !important;
-        flex-wrap: wrap;
-    }
-    
-    #result img {
-        width: 28px !important;
-        height: 28px !important;
-        object-fit: contain;
-    }
-    
-    .lever-button {
-        top: 164px;  /* 274 * 0.6 */
-        right: 12px; /* 19.5 * 0.6 */
-        width: 29px; /* 49 * 0.6 */
-        height: 29px;
-    }
-    
-    .volume-btn {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         bottom: 20px;
         right: 20px;
-        z-index: 200 !important;
     }
 }
 
-/* Móviles pequeños (361px - 390px) - iPhone SE 2020, iPhone 12 Mini */
-@media screen and (max-width: 390px) {
-    .slot-machine-container {
-        width: 304px;  /* 552 * 0.55 */
-        height: 455px; /* 828 * 0.55 */
+/* Desktop (min-width: 1024px) */
+@media screen and (min-width: 1024px) {
+    .game-wrapper {
+        gap: 40px;
     }
     
     .sidebar-container {
-        display: none !important;
-    }
-    
-    .game-elements {
-        padding-top: 116px; /* 210 * 0.55 */
-    }
-    
-    .reels-container {
-        margin-bottom: 74px;  /* 135 * 0.55 */
-        margin-right: 21px;   /* 37.5 * 0.55 */
-        padding-top: 78px;    /* 142.5 * 0.55 */
-    }
-    
-    .reel {
-        width: 60px;  /* 109 * 0.55 */
-        height: 91px; /* 165 * 0.55 */
-    }
-    
-    .symbol {
-        height: 91px;
-    }
-    
-    .symbol-image {
-        width: 58px;  /* 105 * 0.55 */
-        height: 58px;
-    }
-    
-    .result-display {
-        width: 285px;
-        max-width: 90%;
-        min-height: 65px;
-        max-height: 130px;
-        padding: 10px 6px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-    }
-    
-    #result {
-        font-size: 13px !important;
-        gap: 4px !important;
-        flex-wrap: wrap;
-    }
-    
-    #result img {
-        width: 24px !important;
-        height: 24px !important;
-        object-fit: contain;
-    }
-    
-    .lever-button {
-        top: 151px;  /* 274 * 0.55 */
-        right: 11px; /* 19.5 * 0.55 */
-        width: 27px; /* 49 * 0.55 */
-        height: 27px;
+        width: 350px;
     }
     
     .volume-btn {
-        width: 70px;
-        height: 70px;
-        bottom: 12px;
-        right: 12px;
+        width: 130px;
+        height: 130px;
+        bottom: 30px;
+        right: 30px;
     }
 }
