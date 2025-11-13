@@ -308,24 +308,24 @@ body.game-page {
 
 /* (Cementerio) */
 .sidebar-container {
-    background: rgba(42, 42, 42, 0.95);
-    padding: 25px;
-    border-radius: 15px;
+    background: rgba(20, 20, 20, 0.95);
+    border: 3px solid #ff006e;
+    border-radius: 25px;
+    padding: 40px;
     width: 350px;
     max-height: 90vh;
-    border: 3px solid #ff0000;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
 }
 
 .sidebar-container h3 {
-    color: #ff0000;
+    color: #ff006e;
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    text-shadow: 0 0 15px rgba(255, 0, 110, 0.7);
     flex-shrink: 0; /* Evita que el título se comprima */
 }
 
@@ -365,6 +365,15 @@ body.game-page {
         bottom: 20px;
         right: 20px;
     }
+    
+    .volume-controls {
+        bottom:55px;  /* Posiciona más abajo, cerca del volumeBtn */
+        right: 120px;  /* Más cerca del botón */
+    }
+    
+    .volume-slider {
+        width: 100px;  /* Más pequeño en móvil */
+    }
 }
 
 /* Desktop (min-width: 1024px) */
@@ -382,5 +391,14 @@ body.game-page {
         height: 130px;
         bottom: 30px;
         right: 30px;
+    }
+    
+    .volume-controls {
+        bottom: 43px;  /* Posiciona más abajo */
+        right: 96px;   /* Más cerca del botón pequeño */
+    }
+    
+    .volume-slider {
+        width: 90px;   /* Más pequeño para móviles pequeños */
     }
 }
