@@ -28,7 +28,7 @@ let WIN_SYMBOL = 'https://res.cloudinary.com/dsstkg5fn/image/upload/v1762948684/
 let returnPageBtn = document.getElementById('returnPageBtn');
 
 returnPageBtn.addEventListener('click', function() {
-    window.location.href = 'Init.html';
+    window.location.href = '../Players/players.html';
 });
 
 
