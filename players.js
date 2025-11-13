@@ -5,6 +5,7 @@ let addPlayerBtn = document.getElementById('addPlayerBtn');
 let playersContainer = document.getElementById('playersContainer');
 let startGameBtn = document.getElementById('startGameBtn');
 let backBtn = document.getElementById('backBtn');
+let returnPageBtn = document.getElementById('returnPageBtn');
 
 let backgroundMusic = document.getElementById('backgroundMusic');
 let volumeBtn = document.getElementById('volumeBtn');
@@ -234,5 +235,9 @@ startGameBtn.addEventListener('click', function() {
 });
 
 backBtn.addEventListener('click', function() {
+    window.location.href = 'Init.html';
+});
+
+returnPageBtn.addEventListener('click', function() {
     window.location.href = 'Init.html';
 });
