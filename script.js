@@ -66,6 +66,13 @@ if (gameMusic) {
     } else {
         volumeBtn.classList.add('music-off');
     }
+    
+    // Guardar tiempo cada 1 segundo mientras se reproduce
+    gameMusic.addEventListener('timeupdate', function() {
+        if (!gameMusic.paused) {
+            localStorage.setItem('musicCurrentTime', gameMusic.currentTime);
+        }
+    });
 }
 
 if (volumeBtn) {
@@ -78,6 +85,11 @@ if (volumeBtn) {
             console.log('Game music disabled');
         } else {
             musicEnabled = true;
+            // Restaurar el tiempo antes de reproducir
+            let savedTime = localStorage.getItem('musicCurrentTime');
+            if (savedTime) {
+                gameMusic.currentTime = parseFloat(savedTime);
+            }
             gameMusic.play();
             volumeBtn.classList.remove('music-off');
             console.log('Game music enabled');

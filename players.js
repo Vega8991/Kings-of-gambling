@@ -58,6 +58,15 @@ function tryPlayMusic() {
     }
 }
 
+// Guardar tiempo cada 1 segundo mientras se reproduce
+if (backgroundMusic) {
+    backgroundMusic.addEventListener('timeupdate', function() {
+        if (!backgroundMusic.paused) {
+            localStorage.setItem('musicCurrentTime', backgroundMusic.currentTime);
+        }
+    });
+}
+
 window.addEventListener('load', function() {
     updateVolumeButton();
     tryPlayMusic();
@@ -88,6 +97,11 @@ if (volumeBtn) {
         } else {
             musicEnabled = true;
             if (backgroundMusic) {
+                // Restaurar el tiempo antes de reproducir
+                let savedTime = localStorage.getItem('musicCurrentTime');
+                if (savedTime) {
+                    backgroundMusic.currentTime = parseFloat(savedTime);
+                }
                 backgroundMusic.play().catch(function() {
                 });
             }
