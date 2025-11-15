@@ -37,9 +37,31 @@ function tryPlayMusic() {
             console.log('Music playing');
         }).catch(function(error) {
             console.log('Autoplay blocked, waiting for user interaction');
+            // Intentar reproducir en el primer click
+            document.addEventListener('click', function playOnFirstClick() {
+                backgroundMusic.play();
+                document.removeEventListener('click', playOnFirstClick);
+            }, { once: true });
         });
     }
 }
+
+// Guardar tiempo cada 1 segundo mientras se reproduce
+if (backgroundMusic) {
+    backgroundMusic.addEventListener('timeupdate', function() {
+        if (!backgroundMusic.paused) {
+            localStorage.setItem('musicCurrentTime', backgroundMusic.currentTime);
+        }
+    });
+}
+
+// Guardar estado antes de salir de la página
+window.addEventListener('beforeunload', function() {
+    if (backgroundMusic && !backgroundMusic.paused) {
+        localStorage.setItem('musicCurrentTime', backgroundMusic.currentTime);
+        localStorage.setItem('musicaActivada', 'true');
+    }
+});
 
 window.addEventListener('load', function() {
     updateVolumeButton();
@@ -71,6 +93,11 @@ if (volumeBtn) {
         } else {
             musicEnabled = true;
             if (backgroundMusic) {
+                // Restaurar el tiempo antes de reproducir
+                let savedTime = localStorage.getItem('musicCurrentTime');
+                if (savedTime) {
+                    backgroundMusic.currentTime = parseFloat(savedTime);
+                }
                 backgroundMusic.play().catch(function() {
                 });
             }
@@ -171,5 +198,5 @@ document.querySelector('.credits-button').addEventListener('click', function () 
 });
 
 document.querySelector('.start-button').addEventListener('click', function () {
-    window.location.href = 'players.html';
+    window.location.href = '../Players/players.html';
 });

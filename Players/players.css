@@ -386,7 +386,7 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/bajar-volumen_q4uvtd.png');
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/subir-volumen_zc3bzx.png');
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 0;
@@ -402,7 +402,7 @@ body {
 }
 
 .volume-btn.music-off {
-    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/subir-volumen_zc3bzx.png');
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/bajar-volumen_q4uvtd.png');
 }
 
 .volume-controls {
@@ -462,4 +462,39 @@ body {
 
 .volume-slider:hover {
     background: rgba(255, 255, 255, 0.4);
+}
+
+.return-page-btn {   
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 170px;
+    height: 170px;
+    background-image: url('https://res.cloudinary.com/dahfnhc1h/image/upload/v1763050432/ChatGPT_Image_10_nov_2025_11_22_03_1_1_aruqoj.png');
+    border: none;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    z-index: 100;
+}
+
+.return-page-btn:hover {
+    transform: scale(1.08);
+}
+
+.return-page-btn:active {
+    transform: scale(0.92);
+}
+
+@media screen and (max-width: 480px) {
+    .return-page-btn {
+        width: 70px;
+        height: 70px;
+        top: 12px;
+        left: 12px;
+    }
 }

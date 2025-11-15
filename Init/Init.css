@@ -35,7 +35,7 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/bajar-volumen_q4uvtd.png');
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/subir-volumen_zc3bzx.png');
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 0;
@@ -51,7 +51,7 @@ body {
 }
 
 .volume-btn.music-off {
-    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/subir-volumen_zc3bzx.png');
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/bajar-volumen_q4uvtd.png');
 }
 
 .volume-controls {
@@ -228,6 +228,15 @@ body {
         height: 90px;
     }
     
+    .volume-controls {
+        bottom: 55px;  /* Posiciona más abajo, cerca del volumeBtn */
+        right: 120px;  /* Más cerca del botón */
+    }
+    
+    .volume-slider {
+        width: 100px;  /* Más pequeño en móvil */
+    }
+    
     .buttons-container {
         flex-direction: column;
         gap: 15px;
@@ -261,6 +270,22 @@ body {
 }
 
 @media screen and (max-width: 360px) {
+    .volume-btn {
+        width: 70px;
+        height: 70px;
+        bottom: 12px;
+        right: 12px;
+    }
+    
+    .volume-controls {
+        bottom: 42px;  /* Posiciona más abajo */
+        right: 92px;   /* Más cerca del botón pequeño */
+    }
+    
+    .volume-slider {
+        width: 90px;   /* Más pequeño para móviles pequeños */
+    }
+    
     .game-button {
         width: 180px;
         height: 105px;

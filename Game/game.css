@@ -27,6 +27,63 @@ body.game-page {
     background-image: url("https://res.cloudinary.com/dsstkg5fn/image/upload/v1762948688/slot_background4_oduhv4.png");
 }
 
+/* BOTÓN RETURN GENERAL (arriba izquierda) */
+.return-page-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 170px;   /* Tamaño grande */
+    height: 170px;
+    background-image: url('https://res.cloudinary.com/dahfnhc1h/image/upload/v1763050432/ChatGPT_Image_10_nov_2025_11_22_03_1_1_aruqoj.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.30s ease;
+    z-index: 3000; /* encima de la máquina */
+}
+
+.return-page-btn:hover {
+    transform: scale(1.08);
+}
+
+.return-page-btn:active {
+    transform: scale(0.92);
+}
+
+/* ========= TABLETS (<=1024px) ========= */
+@media screen and (max-width: 1024px) {
+    .return-page-btn {
+        top: 18px;
+        left: 18px;
+        width: 80px;   /* reduce suavemente */
+        height: 80px;
+    }
+}
+
+/* ========= MÓVIL NORMAL (<=480px) ========= */
+@media screen and (max-width: 480px) {
+    .return-page-btn {
+        top: 12px;
+        left: 12px;
+        width: 60px;  /* más pequeño */
+        height: 60px;
+    }
+}
+
+/* ========= MÓVIL PEQUEÑO (<=390px) ========= */
+@media screen and (max-width: 390px) {
+    .return-page-btn {
+        top: 10px;
+        left: 10px;
+        width: 50px;  /* tamaño compacto */
+        height: 50px;
+    }
+}
+
+
 /* BOTÓN DE VOLUMEN EN GAME PAGE */
 .volume-btn {
     position: fixed;
@@ -39,7 +96,7 @@ body.game-page {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/bajar-volumen_q4uvtd.png');
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/subir-volumen_zc3bzx.png');
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 0;
@@ -58,7 +115,7 @@ body.game-page {
 }
 
 .volume-btn.music-off {
-    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/subir-volumen_zc3bzx.png');
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/bajar-volumen_q4uvtd.png');
 }
 
 .volume-controls {
@@ -308,24 +365,24 @@ body.game-page {
 
 /* (Cementerio) */
 .sidebar-container {
-    background: rgba(42, 42, 42, 0.95);
-    padding: 25px;
-    border-radius: 15px;
+    background: rgba(20, 20, 20, 0.95);
+    border: 3px solid #ff006e;
+    border-radius: 25px;
+    padding: 40px;
     width: 350px;
     max-height: 90vh;
-    border: 3px solid #ff0000;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
 }
 
 .sidebar-container h3 {
-    color: #ff0000;
+    color: #ff006e;
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    text-shadow: 0 0 15px rgba(255, 0, 110, 0.7);
     flex-shrink: 0; /* Evita que el título se comprima */
 }
 
@@ -365,6 +422,15 @@ body.game-page {
         bottom: 20px;
         right: 20px;
     }
+    
+    .volume-controls {
+        bottom:55px;  /* Posiciona más abajo, cerca del volumeBtn */
+        right: 120px;  /* Más cerca del botón */
+    }
+    
+    .volume-slider {
+        width: 100px;  /* Más pequeño en móvil */
+    }
 }
 
 /* Desktop (min-width: 1024px) */
@@ -382,5 +448,14 @@ body.game-page {
         height: 130px;
         bottom: 30px;
         right: 30px;
+    }
+    
+    .volume-controls {
+        bottom: 43px;  /* Posiciona más abajo */
+        right: 96px;   /* Más cerca del botón pequeño */
+    }
+    
+    .volume-slider {
+        width: 90px;   /* Más pequeño para móviles pequeños */
     }
 }

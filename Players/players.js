@@ -5,6 +5,7 @@ let addPlayerBtn = document.getElementById('addPlayerBtn');
 let playersContainer = document.getElementById('playersContainer');
 let startGameBtn = document.getElementById('startGameBtn');
 let backBtn = document.getElementById('backBtn');
+let returnPageBtn = document.getElementById('returnPageBtn');
 
 let backgroundMusic = document.getElementById('backgroundMusic');
 let volumeBtn = document.getElementById('volumeBtn');
@@ -57,6 +58,23 @@ function tryPlayMusic() {
     }
 }
 
+// Guardar tiempo cada 1 segundo mientras se reproduce
+if (backgroundMusic) {
+    backgroundMusic.addEventListener('timeupdate', function() {
+        if (!backgroundMusic.paused) {
+            localStorage.setItem('musicCurrentTime', backgroundMusic.currentTime);
+        }
+    });
+}
+
+// Guardar estado antes de salir de la página
+window.addEventListener('beforeunload', function() {
+    if (backgroundMusic && !backgroundMusic.paused) {
+        localStorage.setItem('musicCurrentTime', backgroundMusic.currentTime);
+        localStorage.setItem('musicaActivada', 'true');
+    }
+});
+
 window.addEventListener('load', function() {
     updateVolumeButton();
     tryPlayMusic();
@@ -87,6 +105,11 @@ if (volumeBtn) {
         } else {
             musicEnabled = true;
             if (backgroundMusic) {
+                // Restaurar el tiempo antes de reproducir
+                let savedTime = localStorage.getItem('musicCurrentTime');
+                if (savedTime) {
+                    backgroundMusic.currentTime = parseFloat(savedTime);
+                }
                 backgroundMusic.play().catch(function() {
                 });
             }
@@ -230,9 +253,13 @@ startGameBtn.addEventListener('click', function() {
     let playersText = JSON.stringify(players);
     localStorage.setItem('playerNames', playersText);
     console.log('Iniciando juego con los siguientes jugadores:', players);
-    window.location.href = 'game.html';
+    window.location.href = '../Game/game.html';
 });
 
 backBtn.addEventListener('click', function() {
-    window.location.href = 'Init.html';
+    window.location.href = '../Init/Init.html';
+});
+
+returnPageBtn.addEventListener('click', function() {
+    window.location.href = '../Init/Init.html';
 });

@@ -25,6 +25,13 @@ let spinDuration = 3000;
 let SKULL_SYMBOL = 'https://res.cloudinary.com/dsstkg5fn/image/upload/v1762948687/skull_cgo9ps.png';
 let WIN_SYMBOL = 'https://res.cloudinary.com/dsstkg5fn/image/upload/v1762948684/7win_xttuzb.png';
 
+let returnPageBtn = document.getElementById('returnPageBtn');
+
+returnPageBtn.addEventListener('click', function() {
+    window.location.href = '../Players/players.html';
+});
+
+
 let gameMusic = document.getElementById('gameMusic');
 let volumeBtn = document.getElementById('volumeBtn');
 let musicEnabled = false;
@@ -66,7 +73,22 @@ if (gameMusic) {
     } else {
         volumeBtn.classList.add('music-off');
     }
+    
+    // Guardar tiempo cada 1 segundo mientras se reproduce
+    gameMusic.addEventListener('timeupdate', function() {
+        if (!gameMusic.paused) {
+            localStorage.setItem('musicCurrentTime', gameMusic.currentTime);
+        }
+    });
 }
+
+// Guardar estado antes de salir de la página
+window.addEventListener('beforeunload', function() {
+    if (gameMusic && !gameMusic.paused) {
+        localStorage.setItem('musicCurrentTime', gameMusic.currentTime);
+        localStorage.setItem('musicaActivada', 'true');
+    }
+});
 
 if (volumeBtn) {
     volumeBtn.addEventListener('click', function() {
@@ -78,6 +100,11 @@ if (volumeBtn) {
             console.log('Game music disabled');
         } else {
             musicEnabled = true;
+            // Restaurar el tiempo antes de reproducir
+            let savedTime = localStorage.getItem('musicCurrentTime');
+            if (savedTime) {
+                gameMusic.currentTime = parseFloat(savedTime);
+            }
             gameMusic.play();
             volumeBtn.classList.remove('music-off');
             console.log('Game music enabled');
@@ -128,7 +155,7 @@ function showEliminatedPlayers() {
 function restartGame() {
     localStorage.removeItem('playerNames');
     localStorage.removeItem('eliminatedNames');
-    window.location.href = 'Init.html';
+    window.location.href = '../Init/Init.html';
 }
 
 function eliminateRandomPlayer() {
@@ -340,7 +367,7 @@ async function spin() {
 document.addEventListener('DOMContentLoaded', () => {
     if (playerNames.length < 2) {
         alert('No hay suficientes jugadores. Añade al menos 2.');
-        window.location.href = 'players.html';
+        window.location.href = '../Players/players.html';
         return;
     }
 
