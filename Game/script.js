@@ -384,6 +384,10 @@ async function spin() {
         spinButton.style.display = 'none';
         leverButton.style.display = 'none';
         resetButton.style.display = 'inline-block';
+
+        setTimeout(() => {
+        document.getElementById("playAgainBtn").style.display = "block";
+    }, 3000);
     }
 
 }
@@ -501,5 +505,19 @@ function playCoinsSound() {
     console.log('Reproduciendo coinsSound');
     sound.play().catch(err => {
         console.log('Error al reproducir coinsSound:', err);
+    });
+}
+
+let playAgainBtn = document.getElementById('playAgainBtn');
+
+if (playAgainBtn) {
+    playAgainBtn.addEventListener('click', function () {
+
+        // Limpiar jugadores eliminados y progreso
+        localStorage.removeItem('playerNames');
+        localStorage.removeItem('eliminatedNames');
+
+        // Ir a la pantalla de inicio
+        window.location.href = '../Init/Init.html';
     });
 }
