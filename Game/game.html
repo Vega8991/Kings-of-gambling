@@ -9,10 +9,26 @@
 <body class="game-page">
     <button id="returnPageBtn" class="return-page-btn"></button>
 
-    <audio id="gameMusic" loop>
-        <source src="../wheelofdoom.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
+<audio id="gameMusic" loop preload="auto">
+    <source src="../wheelofdoom.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="leverSound" preload="auto">
+    <source src="https://res.cloudinary.com/dahfnhc1h/video/upload/v1763311297/SONIDO_PALANCA_puie88.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="loseSound" preload="auto">
+    <source src="https://res.cloudinary.com/dahfnhc1h/video/upload/v1763311296/SONIDO_PERDEDOR_etoy49.wav" type="audio/wav">
+</audio>
+
+<audio id="winnerSound" preload="auto">
+    <source src="https://res.cloudinary.com/dahfnhc1h/video/upload/v1763311296/SONIDO_GANADOR_tyghv1.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="coinsSound" preload="auto">
+    <source src="https://res.cloudinary.com/dahfnhc1h/video/upload/v1763341252/sonido_ganador_monedas-_-Hecho-con-Clipchamp_y27i0e.mp3" type="audio/mpeg">
+</audio>
+
 
     <div class="volume-controls">
         <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="25">

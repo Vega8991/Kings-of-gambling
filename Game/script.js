@@ -27,9 +27,12 @@ let WIN_SYMBOL = 'https://res.cloudinary.com/dsstkg5fn/image/upload/v1762948684/
 
 let returnPageBtn = document.getElementById('returnPageBtn');
 
-returnPageBtn.addEventListener('click', function() {
-    window.location.href = '../Players/players.html';
-});
+if (returnPageBtn) {
+    returnPageBtn.addEventListener('click', function() {
+        window.location.href = '../Players/players.html';
+    });
+}
+
 
 
 let gameMusic = document.getElementById('gameMusic');
@@ -320,18 +323,30 @@ async function spin() {
     await new Promise(function(resolve) {
         setTimeout(function() {
             resolve();
-        }, 800);
+        }, 50);
     });
     
     if (targetSymbol === SKULL_SYMBOL) {
-        let removedName = eliminateRandomPlayer();
-        resultDiv.innerHTML = '💀 ' + removedName + ' ha sido eliminado! <img src="' + SKULL_SYMBOL + '" class="result-image" alt="Skull">';
+
+        let removedName = eliminateRandomPlayer();  // 1. Elimina enseguida
+
+        playLoseSound(); // 2. Sonido inmediato
+
+        // 3. Muestra el mensaje enseguida
+        resultDiv.innerHTML = '💀 ' + removedName + ' ha sido eliminado! <img src="' + SKULL_SYMBOL + '" class="result-image">';
         resultDiv.style.color = '#ff4444';
+
         
         if (playerNames.length === 1) {
             spinButton.disabled = true;
             leverButton.style.pointerEvents = 'none';
             setTimeout(function() {
+
+                playWinnerSound(); // Sonido ganador
+
+                // Sonido monedas justo después
+                setTimeout(playCoinsSound, 700); // delay suave de 0.7s
+
                 resultDiv.innerHTML = '🎉 ¡' + playerNames[0] + ' ES EL GANADOR! <img src="' + WIN_SYMBOL + '" class="result-image" alt="Winner">';
                 resultDiv.style.color = '#00ff00';
                 spinButton.style.display = 'none';
@@ -345,13 +360,23 @@ async function spin() {
         }
 
     } else if (targetSymbol === WIN_SYMBOL) {
-        let lastEliminated = eliminateRandomPlayer(); 
-        
+
+        let lastEliminated = eliminateRandomPlayer();         
         let winner = playerNames[0]; 
-        
+
+        // 🔊 SONIDO GANADOR
+        console.log("Reproduciendo winnerSound");
+        playWinnerSound();
+
+        // 🔔 SONIDO DE MONEDAS
+        setTimeout(() => {
+            console.log("Reproduciendo coinsSound");
+            playCoinsSound();
+        }, 1000);
+
         resultDiv.innerHTML = '🎉 ¡' + winner + ' ES EL GANADOR! <img src="' + WIN_SYMBOL + '" class="result-image" alt="Winner">';
         resultDiv.style.color = '#00ff00';
-        
+            
         playerNames = [];
         let playersText = JSON.stringify(playerNames);
         localStorage.setItem('playerNames', playersText);
@@ -360,10 +385,36 @@ async function spin() {
         leverButton.style.display = 'none';
         resetButton.style.display = 'inline-block';
     }
+
 }
 
 
 // --- Inicialización del Juego (lógica actualizada) ---
+let audioUnlocked = false;
+
+function unlockGameSounds() {
+    if (audioUnlocked) return;
+    audioUnlocked = true;
+
+    const ids = ['winnerSound', 'coinsSound', 'loseSound'];
+    ids.forEach(id => {
+        const a = document.getElementById(id);
+        if (!a) return;
+
+        a.muted = true;
+        a.volume = 1;
+        a.currentTime = 0;
+        a.play().then(() => {
+            a.pause();
+            a.muted = false;
+            a.currentTime = 0;
+            console.log('Desbloqueado audio:', id);
+        }).catch(err => {
+            console.log('No se pudo desbloquear audio', id, err);
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     if (playerNames.length < 2) {
         alert('No hay suficientes jugadores. Añade al menos 2.');
@@ -372,12 +423,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Eventos para la palanca y botones
-    leverButton.addEventListener('click', spin); // La palanca activa el giro
-    spinButton.addEventListener('click', spin);
-    resetButton.addEventListener('click', restartGame);
+    if (leverButton) {
+        leverButton.addEventListener('click', function () {
+            unlockGameSounds();  // 🔥 desbloqueo ganador/monedas/perdedor
+            playLeverSound();
+            spin();
+        });
+    }
+
+    if (spinButton) {
+        spinButton.addEventListener('click', function () {
+            unlockGameSounds();  // por si algún día usas el botón también
+            spin();
+        });
+    }
+
+    if (resetButton) {
+        resetButton.addEventListener('click', restartGame);
+    }
+
     initReels();
     showEliminatedPlayers();
 });
+
 
 // Actualizar symbolHeight cuando se redimensiona la ventana
 window.addEventListener('resize', function() {
@@ -389,5 +457,49 @@ window.addEventListener('beforeunload', function() {
     localStorage.removeItem('eliminatedNames');
     console.log('Cementerio limpiado del localStorage');
 });
+function playLeverSound() {
+    const sound = document.getElementById('leverSound');
+    if (!sound) return;
 
+    sound.currentTime = 0;
+    sound.volume = 1;
+    sound.play().catch(err => {
+        console.log('Error al reproducir leverSound:', err);
+    });
+}
 
+function playLoseSound() {
+    const sound = document.getElementById('loseSound');
+    if (!sound) return;
+
+    sound.currentTime = 0;
+    sound.volume = 1;
+    sound.play().catch(err => {
+        console.log('Error al reproducir loseSound:', err);
+    });
+}
+
+function playWinnerSound() {
+    const sound = document.getElementById('winnerSound');
+    if (!sound) return;
+
+    sound.muted = false;
+    sound.currentTime = 0;
+    sound.volume = 1;
+    console.log('Reproduciendo winnerSound');
+    sound.play().catch(err => {
+        console.log('Error al reproducir winnerSound:', err);
+    });
+}
+
+function playCoinsSound() {
+    const sound = document.getElementById('coinsSound');
+    if (!sound) return;
+
+    sound.currentTime = 0;
+    sound.volume = 1;
+    console.log('Reproduciendo coinsSound');
+    sound.play().catch(err => {
+        console.log('Error al reproducir coinsSound:', err);
+    });
+}
