@@ -53,16 +53,6 @@ body.game-page {
     transform: scale(0.92);
 }
 
-/* ========= TABLETS (<=1024px) ========= */
-@media screen and (max-width: 1024px) {
-    .return-page-btn {
-        top: 18px;
-        left: 18px;
-        width: 80px;   /* reduce suavemente */
-        height: 80px;
-    }
-}
-
 /* ========= MÓVIL NORMAL (<=480px) ========= */
 @media screen and (max-width: 480px) {
     .return-page-btn {
