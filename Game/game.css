@@ -460,7 +460,7 @@ body.game-page {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 260px;          /* Tamaño base del botón */
-    height: 110px;
+    height: 210px;
     background-image: url('https://res.cloudinary.com/dahfnhc1h/image/upload/v1763070305/ChatGPT_Image_13_nov_2025_21_21_34_1_1_xjhspi.png');
     background-size: contain;
     background-repeat: no-repeat;
