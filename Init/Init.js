@@ -27,7 +27,6 @@ function updateVolumeButton() {
 
 function tryPlayMusic() {
     if (musicEnabled === true && backgroundMusic) {
-        // Restaurar tiempo guardado
         let savedTime = localStorage.getItem('musicCurrentTime');
         if (savedTime) {
             backgroundMusic.currentTime = parseFloat(savedTime);
@@ -37,7 +36,6 @@ function tryPlayMusic() {
             console.log('Music playing');
         }).catch(function(error) {
             console.log('Autoplay blocked, waiting for user interaction');
-            // Intentar reproducir en el primer click
             document.addEventListener('click', function playOnFirstClick() {
                 backgroundMusic.play();
                 document.removeEventListener('click', playOnFirstClick);
@@ -46,7 +44,6 @@ function tryPlayMusic() {
     }
 }
 
-// Guardar tiempo cada 1 segundo mientras se reproduce
 if (backgroundMusic) {
     backgroundMusic.addEventListener('timeupdate', function() {
         if (!backgroundMusic.paused) {
@@ -55,7 +52,6 @@ if (backgroundMusic) {
     });
 }
 
-// Guardar estado antes de salir de la página
 window.addEventListener('beforeunload', function() {
     if (backgroundMusic && !backgroundMusic.paused) {
         localStorage.setItem('musicCurrentTime', backgroundMusic.currentTime);
@@ -67,7 +63,6 @@ window.addEventListener('load', function() {
     updateVolumeButton();
     tryPlayMusic();
     
-    // Configurar volumen inicial
     let volumeSlider = document.getElementById('volumeSlider');
     let savedVolume = localStorage.getItem('musicVolume');
     if (savedVolume) {
@@ -93,7 +88,6 @@ if (volumeBtn) {
         } else {
             musicEnabled = true;
             if (backgroundMusic) {
-                // Restaurar el tiempo antes de reproducir
                 let savedTime = localStorage.getItem('musicCurrentTime');
                 if (savedTime) {
                     backgroundMusic.currentTime = parseFloat(savedTime);
@@ -109,7 +103,6 @@ if (volumeBtn) {
     });
 }
 
-// Control de la barra de volumen
 let volumeSlider = document.getElementById('volumeSlider');
 if (volumeSlider && backgroundMusic) {
     volumeSlider.addEventListener('input', function() {
@@ -163,7 +156,7 @@ document.querySelector('.instructions-button').addEventListener('click', functio
     });
 });
 
-document.querySelector('.credits-button').addEventListener('click', function () {
+document.querySelector('.credits-button').addEventListener('click',  ()=> {
     Swal.fire({
         title: 'Desarrolladores',
         html: `
@@ -197,6 +190,6 @@ document.querySelector('.credits-button').addEventListener('click', function () 
     });
 });
 
-document.querySelector('.start-button').addEventListener('click', function () {
+document.querySelector('.start-button').addEventListener('click', () => {
     window.location.href = '../Players/players.html';
 });

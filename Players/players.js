@@ -80,8 +80,8 @@ window.addEventListener('load', function() {
     tryPlayMusic();
     
     // Configurar volumen inicial
-    var volumeSlider = document.getElementById('volumeSlider');
-    var savedVolume = localStorage.getItem('musicVolume');
+    let volumeSlider = document.getElementById('volumeSlider');
+    let savedVolume = localStorage.getItem('musicVolume');
     if (savedVolume) {
         volumeSlider.value = savedVolume;
         if (backgroundMusic) {
@@ -122,10 +122,10 @@ if (volumeBtn) {
 }
 
 // Control de la barra de volumen
-var volumeSlider = document.getElementById('volumeSlider');
+let volumeSlider = document.getElementById('volumeSlider');
 if (volumeSlider && backgroundMusic) {
     volumeSlider.addEventListener('input', function() {
-        var volume = this.value;
+        let volume = this.value;
         backgroundMusic.volume = volume / 100;
         localStorage.setItem('musicVolume', volume);
     });
@@ -263,3 +263,5 @@ backBtn.addEventListener('click', function() {
 returnPageBtn.addEventListener('click', function() {
     window.location.href = '../Init/Init.html';
 });
+
+window.tryPlayMusic = tryPlayMusic;
