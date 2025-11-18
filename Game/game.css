@@ -447,7 +447,7 @@ body.game-page {
     
     .volume-controls {
         bottom: 87px;  /* Posiciona más abajo */
-        right: 160px;   /* Más cerca del botón pequeño */
+        right: 170px;   /* Más cerca del botón pequeño */
     }
     
     .volume-slider {
