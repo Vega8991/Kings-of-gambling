@@ -211,9 +211,10 @@ body.game-page {
 .reel {
     width: 109px;  /* 75% de 145px */
     height: 165px; /* 75% de 220px */
-    background: rgb(240, 233, 207);
     border: none;
     border-radius: 11px; /* 75% de 15px */
+    background: rgb(240, 233, 207);
+    box-shadow: inset 5px 5px 20px #000; 
     overflow: hidden;
     position: relative;
     display: flex;
@@ -262,12 +263,16 @@ body.game-page {
 
 /* MENSAJE DE RESULTADO */
 .result-display {
-    width: 450px; /* 75% de 600px */
-    height: 90px; /* 75% de 120px */
+    width: 380px; /* 75% de 600px */
+    height: 95px; /* 75% de 120px */
+    margin-top: -22px;
+    margin-left: -7px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px; /* 75% de 40px */
+    background: rgb(240, 233, 207);
+    box-shadow: inset 5px 5px 20px #000; 
+    
 }
 
 #result {

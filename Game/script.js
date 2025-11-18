@@ -140,6 +140,7 @@ if (savedEliminated) {
 }
 
 let spinButton = document.getElementById('spinButton');
+let resetButton = document.getElementById('resetButton');
 let leverButton = document.getElementById('leverButton');
 let eliminatedList = document.getElementById('eliminatedList');
 let resultDiv = document.getElementById('result');
@@ -332,7 +333,7 @@ async function spin() {
         playLoseSound(); // 2. Sonido inmediato
 
         // 3. Muestra el mensaje enseguida
-        resultDiv.innerHTML = '💀 ' + removedName + ' ha sido eliminado! <img src="' + SKULL_SYMBOL + '" class="result-image">';
+        resultDiv.innerHTML =+ removedName + ' ha sido eliminado! <img src="' + SKULL_SYMBOL + '" class="result-image">';
         resultDiv.style.color = '#ff4444';
 
         
@@ -346,10 +347,11 @@ async function spin() {
                 // Sonido monedas justo después
                 setTimeout(playCoinsSound, 700); // delay suave de 0.7s
 
-                resultDiv.innerHTML = '🎉 ¡' + playerNames[0] + ' ES EL GANADOR! <img src="' + WIN_SYMBOL + '" class="result-image" alt="Winner">';
+                resultDiv.innerHTML = + playerNames[0] + ' ES EL GANADOR! <img src="' + WIN_SYMBOL + '" class="result-image" alt="Winner">';
                 resultDiv.style.color = '#00ff00';
                 spinButton.style.display = 'none';
                 leverButton.style.display = 'none';
+                resetButton.style.display = 'inline-block';
             }, 2500);
         } else {
             spinButton.disabled = false;
@@ -381,10 +383,7 @@ async function spin() {
 
         spinButton.style.display = 'none';
         leverButton.style.display = 'none';
-
-        setTimeout(() => {
-        document.getElementById("playAgainBtn").style.display = "block";
-    }, 3000);
+        resetButton.style.display = 'inline-block';
     }
 
 }
@@ -437,6 +436,10 @@ document.addEventListener('DOMContentLoaded', () => {
             unlockGameSounds();  // por si algún día usas el botón también
             spin();
         });
+    }
+
+    if (resetButton) {
+        resetButton.addEventListener('click', restartGame);
     }
 
     initReels();
@@ -498,19 +501,5 @@ function playCoinsSound() {
     console.log('Reproduciendo coinsSound');
     sound.play().catch(err => {
         console.log('Error al reproducir coinsSound:', err);
-    });
-}
-
-let playAgainBtn = document.getElementById('playAgainBtn');
-
-if (playAgainBtn) {
-    playAgainBtn.addEventListener('click', function () {
-
-        // Limpiar jugadores eliminados y progreso
-        localStorage.removeItem('playerNames');
-        localStorage.removeItem('eliminatedNames');
-
-        // Ir a la pantalla de inicio
-        window.location.href = '../Init/Init.html';
     });
 }
