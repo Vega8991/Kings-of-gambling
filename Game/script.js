@@ -140,7 +140,6 @@ if (savedEliminated) {
 }
 
 let spinButton = document.getElementById('spinButton');
-let resetButton = document.getElementById('resetButton');
 let leverButton = document.getElementById('leverButton');
 let eliminatedList = document.getElementById('eliminatedList');
 let resultDiv = document.getElementById('result');
@@ -351,7 +350,6 @@ async function spin() {
                 resultDiv.style.color = '#00ff00';
                 spinButton.style.display = 'none';
                 leverButton.style.display = 'none';
-                resetButton.style.display = 'inline-block';
             }, 2500);
         } else {
             spinButton.disabled = false;
@@ -383,7 +381,10 @@ async function spin() {
 
         spinButton.style.display = 'none';
         leverButton.style.display = 'none';
-        resetButton.style.display = 'inline-block';
+
+        setTimeout(() => {
+        document.getElementById("playAgainBtn").style.display = "block";
+    }, 3000);
     }
 
 }
@@ -436,10 +437,6 @@ document.addEventListener('DOMContentLoaded', () => {
             unlockGameSounds();  // por si algún día usas el botón también
             spin();
         });
-    }
-
-    if (resetButton) {
-        resetButton.addEventListener('click', restartGame);
     }
 
     initReels();
@@ -501,5 +498,19 @@ function playCoinsSound() {
     console.log('Reproduciendo coinsSound');
     sound.play().catch(err => {
         console.log('Error al reproducir coinsSound:', err);
+    });
+}
+
+let playAgainBtn = document.getElementById('playAgainBtn');
+
+if (playAgainBtn) {
+    playAgainBtn.addEventListener('click', function () {
+
+        // Limpiar jugadores eliminados y progreso
+        localStorage.removeItem('playerNames');
+        localStorage.removeItem('eliminatedNames');
+
+        // Ir a la pantalla de inicio
+        window.location.href = '../Init/Init.html';
     });
 }
