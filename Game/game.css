@@ -213,6 +213,8 @@ body.game-page {
     height: 165px; /* 75% de 220px */
     border: none;
     border-radius: 11px; /* 75% de 15px */
+    background: rgb(240, 233, 207);
+    box-shadow: inset 5px 5px 20px #000;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -268,6 +270,8 @@ body.game-page {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: rgb(240, 233, 207);
+    box-shadow: inset 5px 5px 20px #000; 
     margin-bottom: 30px; /* 75% de 40px */
 }
 
