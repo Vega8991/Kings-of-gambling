@@ -333,7 +333,7 @@ async function spin() {
         playLoseSound(); // 2. Sonido inmediato
 
         // 3. Muestra el mensaje enseguida
-        resultDiv.innerHTML = '💀 ' + removedName + ' ha sido eliminado! <img src="' + SKULL_SYMBOL + '" class="result-image">';
+        resultDiv.innerHTML =+ removedName + ' ha sido eliminado! <img src="' + SKULL_SYMBOL + '" class="result-image">';
         resultDiv.style.color = '#ff4444';
 
         
@@ -347,7 +347,7 @@ async function spin() {
                 // Sonido monedas justo después
                 setTimeout(playCoinsSound, 700); // delay suave de 0.7s
 
-                resultDiv.innerHTML = '🎉 ¡' + playerNames[0] + ' ES EL GANADOR! <img src="' + WIN_SYMBOL + '" class="result-image" alt="Winner">';
+                resultDiv.innerHTML = + playerNames[0] + ' ES EL GANADOR! <img src="' + WIN_SYMBOL + '" class="result-image" alt="Winner">';
                 resultDiv.style.color = '#00ff00';
                 spinButton.style.display = 'none';
                 leverButton.style.display = 'none';
