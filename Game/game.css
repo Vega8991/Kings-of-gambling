@@ -446,12 +446,12 @@ body.game-page {
     }
     
     .volume-controls {
-        bottom: 43px;  /* Posiciona más abajo */
-        right: 96px;   /* Más cerca del botón pequeño */
+        bottom: 87px;  /* Posiciona más abajo */
+        right: 160px;   /* Más cerca del botón pequeño */
     }
     
     .volume-slider {
-        width: 90px;   /* Más pequeño para móviles pequeños */
+        width: 160px;   /* Más pequeño para móviles pequeños */
     }
 }
 
