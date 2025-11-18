@@ -337,41 +337,28 @@ body {
         font-size: 14px;
         padding: 30px 15px;
     }
-}
-
-@media screen and (max-width: 360px) {
-    .players-panel {
-        padding: 20px 15px;
-        gap: 15px;
+    
+    .return-page-btn {
+        width: 70px;
+        height: 70px;
+        top: 12px;
+        left: 12px;
     }
     
-    .title {
-        font-size: 22px;
+    .volume-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 90px;
+        height: 90px;
     }
     
-    .player-input {
-        font-size: 15px;
-        padding: 10px 12px;
+    .volume-controls {
+        bottom: 55px;
+        right: 120px;
     }
     
-    .add-button {
-        height: 42px;
-        font-size: 22px;
-    }
-    
-    .players-container {
-        min-height: 120px;
-        max-height: 180px;
-    }
-    
-    .player-tag {
-        padding: 8px 10px;
-        font-size: 14px;
-    }
-    
-    .game-button {
-        width: 180px;
-        height: 105px;
+    .volume-slider {
+        width: 100px;
     }
 }
 
@@ -488,13 +475,4 @@ body {
 
 .return-page-btn:active {
     transform: scale(0.92);
-}
-
-@media screen and (max-width: 480px) {
-    .return-page-btn {
-        width: 70px;
-        height: 70px;
-        top: 12px;
-        left: 12px;
-    }
 }
