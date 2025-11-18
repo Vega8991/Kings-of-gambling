@@ -263,3 +263,5 @@ backBtn.addEventListener('click', function() {
 returnPageBtn.addEventListener('click', function() {
     window.location.href = '../Init/Init.html';
 });
+
+window.tryPlayMusic = tryPlayMusic;
