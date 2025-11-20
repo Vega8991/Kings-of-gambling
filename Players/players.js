@@ -252,7 +252,7 @@ startGameBtn.addEventListener('click', function() {
     savePlayersToLocalStorage();
     let playersText = JSON.stringify(players);
     localStorage.setItem('playerNames', playersText);
-    console.log('Iniciando juego con los siguientes jugadores:', players);
+    console.log('Starting game with this players: ', players);
     window.location.href = '../Game/game.html';
 });
 
