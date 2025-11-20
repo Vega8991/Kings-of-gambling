@@ -169,7 +169,7 @@ function addNewPlayer() {
     }
     
     if (players.length >= 20) {
-        alert('Máximo 20 jugadores permitidos');
+        alert('20 players max');
         return;
     }
     
@@ -245,14 +245,14 @@ function checkStartButtonStatus() {
 
 startGameBtn.addEventListener('click', function() {
     if (players.length === 0) {
-        alert('Debes agregar al menos un jugador para comenzar');
+        alert('You must add one payer at least to start');
         return;
     }
     
     savePlayersToLocalStorage();
     let playersText = JSON.stringify(players);
     localStorage.setItem('playerNames', playersText);
-    console.log('Iniciando juego con los siguientes jugadores:', players);
+    console.log('Starting game with this players: ', players);
     window.location.href = '../Game/game.html';
 });
 

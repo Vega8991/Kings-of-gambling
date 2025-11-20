@@ -229,12 +229,13 @@ body {
     }
     
     .volume-controls {
-        bottom: 35px;  /* Posiciona más abajo, cerca del volumeBtn */
-        right: 120px;  /* Más cerca del botón */
+        bottom: 55px;  /* Posiciona más abajo, cerca del volumeBtn */
+        right: 100px;  /* Más cerca del botón */
     }
     
     .volume-slider {
         width: 100px;  /* Más pequeño en móvil */
+        height: 8px;
     }
     
     .buttons-container {
