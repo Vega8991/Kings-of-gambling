@@ -350,13 +350,6 @@ body.game-page {
         0 0 120px rgba(255, 215, 0, 0.5);
 }
 
-.lever-button:active {
-    transform: translateY(5px);
-    box-shadow: 
-        0 0 15px rgba(255, 215, 0, 0.8),
-        0 0 30px rgba(255, 215, 0, 0.6);
-}
-
 
 /* (Cementerio) */
 .sidebar-container {
@@ -447,7 +440,7 @@ body.game-page {
     
     .volume-controls {
         bottom: 87px;  /* Posiciona más abajo */
-        right: 160px;   /* Más cerca del botón pequeño */
+        right: 170px;   /* Más cerca del botón pequeño */
     }
     
     .volume-slider {
