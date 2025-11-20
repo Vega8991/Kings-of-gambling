@@ -473,32 +473,21 @@ body.game-page {
         width: 100px; 
         height: 100px;
     }
+}
 
-    .play-again-btn {
-    display: none; /* Oculto por defecto */
+#winnerVideoContainer {
+    display: none;           
     position: fixed;
-    top: 50%;              /* Un poco por debajo del centro vertical */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 260px;          /* Tamaño base del botón */
-    height: 260px;
-    background-image: url('https://res.cloudinary.com/dahfnhc1h/image/upload/v1763070305/ChatGPT_Image_13_nov_2025_21_21_34_1_1_xjhspi.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 3000;
-    transition: transform 0.2s ease, filter 0.2s ease;
+    inset: 0;             
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 2500;            
+    pointer-events: none;     
 }
 
-.play-again-btn:hover {
-    transform: translate(-50%, -50%) scale(1.08);
-    filter: brightness(1.1);
-}
-
-.play-again-btn:active {
-    transform: translate(-50%, -50%) scale(0.95);
-}
+#winnerVideoContainer video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       
 }
