@@ -268,36 +268,22 @@ body {
         width: 180px;
         height: 60px;
     }
-}
 
-@media screen and (max-width: 360px) {
     .volume-btn {
-        width: 70px;
-        height: 70px;
-        bottom: 12px;
-        right: 12px;
+        bottom: 15px;
+        right: 15px;
+        width: 90px;
+        height: 90px;
     }
     
     .volume-controls {
-        bottom: 42px;  /* Posiciona más abajo */
-        right: 92px;   /* Más cerca del botón pequeño */
+        bottom: 55px;  /* Posiciona más abajo, cerca del volumeBtn */
+        right: 100px;  /* Más cerca del botón */
     }
     
     .volume-slider {
-        width: 90px;   /* Más pequeño para móviles pequeños */
-    }
-    
-    .game-button {
-        width: 180px;
-        height: 105px;
-    }
-    
-    .swal2-title {
-        font-size: 20px;
-    }
-    
-    .custom-music-button {
-        width: 150px;
-        height: 50px;
+        width: 100px;  /* Más pequeño en móvil */
+        height: 8px;
     }
 }
+
