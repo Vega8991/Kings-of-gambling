@@ -469,5 +469,20 @@ body {
 
 
 @media screen and (max-width: 480px) {
+    .volume-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 90px;
+        height: 90px;
+    }
     
+    .volume-controls {
+        bottom: 55px;  /* Posiciona más abajo, cerca del volumeBtn */
+        right: 100px;  /* Más cerca del botón */
+    }
+    
+    .volume-slider {
+        width: 100px;  /* Más pequeño en móvil */
+        height: 8px;
+    }
 }
