@@ -407,16 +407,18 @@ body {
 
 .volume-controls {
     position: absolute;
-    bottom: 80px;
-    right: 180px;
+    bottom: 87px;
+    right: 170px;
     display: flex;
+    justify-content: center;
+    gap:16px;
     flex-direction: row;
     align-items: center;
     z-index: 100;
 }
 
 .volume-slider {
-    width: 150px;
+    width: 160px;
     height: 8px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
@@ -464,37 +466,8 @@ body {
     background: rgba(255, 255, 255, 0.4);
 }
 
-.return-page-btn {   
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 170px;
-    height: 170px;
-    background-image: url('https://res.cloudinary.com/dahfnhc1h/image/upload/v1763050432/ChatGPT_Image_10_nov_2025_11_22_03_1_1_aruqoj.png');
-    border: none;
-    background-color: transparent;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 0;
-    z-index: 100;
-}
 
-.return-page-btn:hover {
-    transform: scale(1.08);
-}
-
-.return-page-btn:active {
-    transform: scale(0.92);
-}
 
 @media screen and (max-width: 480px) {
-    .return-page-btn {
-        width: 70px;
-        height: 70px;
-        top: 12px;
-        left: 12px;
-    }
+    
 }

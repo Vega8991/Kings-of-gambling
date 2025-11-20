@@ -214,6 +214,7 @@ body.game-page {
     border: none;
     border-radius: 11px; /* 75% de 15px */
     background: rgb(240, 233, 207);
+    box-shadow: inset 5px 5px 20px #000;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -262,12 +263,16 @@ body.game-page {
 
 /* MENSAJE DE RESULTADO */
 .result-display {
-    width: 450px; /* 75% de 600px */
-    height: 90px; /* 75% de 120px */
+    width: 380px; /* 75% de 600px */
+    height: 95px; /* 75% de 120px */
+    margin-top: -22px;
+    margin-left: -7px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
+    background: rgb(240, 233, 207);
+    box-shadow: inset 5px 5px 20px #000; 
+    margin-bottom: 30px; /* 75% de 40px */
 }
 
 #result {
@@ -343,13 +348,6 @@ body.game-page {
         0 0 40px rgba(255, 215, 0, 0.9),
         0 0 80px rgba(255, 215, 0, 0.7),
         0 0 120px rgba(255, 215, 0, 0.5);
-}
-
-.lever-button:active {
-    transform: translateY(5px);
-    box-shadow: 
-        0 0 15px rgba(255, 215, 0, 0.8),
-        0 0 30px rgba(255, 215, 0, 0.6);
 }
 
 
@@ -441,12 +439,12 @@ body.game-page {
     }
     
     .volume-controls {
-        bottom: 43px;  /* Posiciona más abajo */
-        right: 96px;   /* Más cerca del botón pequeño */
+        bottom: 87px;  /* Posiciona más abajo */
+        right: 170px;   /* Más cerca del botón pequeño */
     }
     
     .volume-slider {
-        width: 90px;   /* Más pequeño para móviles pequeños */
+        width: 160px;   /* Más pequeño para móviles pequeños */
     }
 }
 

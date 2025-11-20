@@ -56,8 +56,8 @@ body {
 
 .volume-controls {
     position: absolute;
-    bottom: 80px;
-    right: 180px;
+    bottom: 87px;
+    right: 170px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -65,7 +65,7 @@ body {
 }
 
 .volume-slider {
-    width: 150px;
+    width: 160px;
     height: 8px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
@@ -229,7 +229,7 @@ body {
     }
     
     .volume-controls {
-        bottom: 55px;  /* Posiciona más abajo, cerca del volumeBtn */
+        bottom: 35px;  /* Posiciona más abajo, cerca del volumeBtn */
         right: 120px;  /* Más cerca del botón */
     }
     
