@@ -44,7 +44,7 @@ async function spin() {
         let removedName = eliminateRandomPlayer();
         playLoseSound();
 
-        resultDiv.innerHTML = '💀 ' + removedName + ' ha sido eliminado! <img src="' + SKULL_SYMBOL + '" class="result-image">';
+        resultDiv.innerHTML = removedName + ' ha sido eliminado! <img src="' + SKULL_SYMBOL + '" class="result-image">';
         resultDiv.style.color = '#ff4444';
         
         if (playerNames.length === 1) {
@@ -54,7 +54,7 @@ async function spin() {
                 playWinnerSound();
                 setTimeout(playCoinsSound, 700);
 
-                resultDiv.innerHTML = '🎉 ¡' + playerNames[0] + ' ES EL GANADOR! <img src="' + WIN_SYMBOL + '" class="result-image" alt="Winner">';
+                resultDiv.innerHTML = playerNames[0] + ' ES EL GANADOR! <img src="' + WIN_SYMBOL + '" class="result-image" alt="Winner">';
                 resultDiv.style.color = '#00ff00';
                 spinButton.style.display = 'none';
                 leverButton.style.display = 'none';

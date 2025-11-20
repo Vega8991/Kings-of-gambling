@@ -151,7 +151,7 @@ function addNewPlayer() {
     let playerName = playerInput.value.trim();
     
     if (playerName === '') {
-        alert('Por favor, ingresa un nombre');
+        alert('Please, add a name');
         return;
     }
     
@@ -164,7 +164,7 @@ function addNewPlayer() {
     }
     
     if (playerExists === true) {
-        alert('Este jugador ya ha sido agregado');
+        alert('Player already exists');
         return;
     }
     
