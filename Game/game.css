@@ -53,25 +53,9 @@ body.game-page {
     transform: scale(0.92);
 }
 
-/* ========= MÓVIL NORMAL (<=480px) ========= */
-@media screen and (max-width: 480px) {
-    .return-page-btn {
-        top: 12px;
-        left: 12px;
-        width: 60px;  /* más pequeño */
-        height: 60px;
-    }
-}
-
-
-
 /* BOTÓN DE VOLUMEN EN GAME PAGE */
 .volume-btn {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 130px;
-    height: 130px;
     border: none;
     background-color: transparent;
     background-size: contain;
@@ -101,8 +85,6 @@ body.game-page {
 
 .volume-controls {
     position: fixed;
-    bottom: 80px;
-    right: 180px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -110,7 +92,6 @@ body.game-page {
 }
 
 .volume-slider {
-    width: 150px;
     height: 8px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
@@ -385,30 +366,36 @@ body.game-page {
     border: 1px solid #444;
 }
 
-/* Desktop (min-width: 1024px) */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 769px) {
+    .return-page-btn {
+        top: 20px;
+        left: 20px;
+        width: 170px;
+        height: 170px;
+    }
+    
+    .volume-btn {
+        bottom: 30px;
+        right: 30px;
+        width: 130px;
+        height: 130px;
+    }
+    
+    .volume-controls {
+        bottom: 87px;
+        right: 170px;
+    }
+    
+    .volume-slider {
+        width: 160px;
+    }
+    
     .game-wrapper {
         gap: 40px;
     }
     
     .sidebar-container {
         width: 350px;
-    }
-    
-    .volume-btn {
-        width: 130px;
-        height: 130px;
-        bottom: 30px;
-        right: 30px;
-    }
-    
-    .volume-controls {
-        bottom: 87px;  /* Posiciona más abajo */
-        right: 170px;   /* Más cerca del botón pequeño */
-    }
-    
-    .volume-slider {
-        width: 160px;   /* Más pequeño para móviles pequeños */
     }
 }
 
@@ -443,11 +430,101 @@ body.game-page {
     transform: translate(-50%, -50%) scale(0.95);
 }
 
-@media screen and (max-width: 390px) {
-    .play-again-btn {
-        width: 160px;
-        height: 70px;
-        top: 62%;
+@media screen and (min-width: 375px) and (max-width: 440px) {
+    body {
+        padding: 5px;
+        overflow-y: auto;
+        height: auto;
+    }
+    
+    .game-wrapper {
+        flex-direction: column;
+        gap: 20px;
+        max-height: none;
+        padding: 10px 0;
+    }
+    
+    .slot-machine-container {
+        width: 276px;
+        height: 414px;
+        flex-shrink: 0;
+    }
+    
+    .game-elements {
+        padding-top: 105px;
+    }
+    
+    .reels-container {
+        margin-bottom: 67.5px;
+        margin-right: 18.75px;
+        padding-top: 71.25px;
+        gap: 0px;
+    }
+    
+    .reel {
+        width: 54.5px;
+        height: 82.5px;
+        border-radius: 5.5px;
+    }
+    
+    .symbol {
+        height: 82.5px;
+    }
+    
+    .symbol-image {
+        width: 52.5px;
+        height: 52.5px;
+    }
+    
+    .result-display {
+        width: 190px;
+        height: 47.5px;
+        margin-top: -11px;
+        margin-left: -3.5px;
+        margin-bottom: 15px;
+    }
+    
+    #result {
+        font-size: 11px;
+        gap: 4px;
+        padding: 3px;
+    }
+    
+    #result img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .lever-button {
+        top: 137px;
+        right: 9.75px;
+        width: 24.5px;
+        height: 24.5px;
+    }
+    
+    .sidebar-container {
+        width: 90%;
+        max-width: 350px;
+        padding: 20px;
+        max-height: 300px;
+    }
+    
+    .sidebar-container h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    #eliminatedList li {
+        padding: 8px 10px;
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    .return-page-btn {
+        top: 10px;
+        left: 10px;
+        width: 50px;
+        height: 50px;
     }
 
     .volume-btn {
@@ -458,47 +535,17 @@ body.game-page {
     }
     
     .volume-controls {
-        bottom: 42px;  /* Posiciona más abajo, cerca del volumeBtn */
-        right: 80px;  /* Más cerca del botón */
+        bottom: 10px;
+        right: 85px;
     }
     
     .volume-slider {
-        width: 80px;  /* Más pequeño en móvil */
-        height: 6px;
+        width: 80px;
     }
-
-    .return-page-btn {
-        top: 10px;
-        left: 10px;
-        width: 100px; 
-        height: 100px;
-    }
-
+    
     .play-again-btn {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    top: 50%;              /* Un poco por debajo del centro vertical */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 260px;          /* Tamaño base del botón */
-    height: 260px;
-    background-image: url('https://res.cloudinary.com/dahfnhc1h/image/upload/v1763070305/ChatGPT_Image_13_nov_2025_21_21_34_1_1_xjhspi.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 3000;
-    transition: transform 0.2s ease, filter 0.2s ease;
-}
-
-.play-again-btn:hover {
-    transform: translate(-50%, -50%) scale(1.08);
-    filter: brightness(1.1);
-}
-
-.play-again-btn:active {
-    transform: translate(-50%, -50%) scale(0.95);
-}
+        width: 180px;
+        height: 90px;
+        top: 50%;
+    }
 }
