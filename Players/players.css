@@ -264,48 +264,8 @@ body {
     padding: 40px 20px;
 }
 
-@media screen and (max-width: 390px) {
-    .players-panel {
-        padding: 20px 15px;
-        gap: 15px;
-    }
-    
-    .title {
-        font-size: 22px;
-    }
-    
-    .player-input {
-        font-size: 15px;
-        padding: 10px 12px;
-    }
-    
-    .add-button {
-        height: 42px;
-        font-size: 22px;
-    }
-    
-    .players-container {
-        min-height: 120px;
-        max-height: 180px;
-    }
-    
-    .player-tag {
-        padding: 8px 10px;
-        font-size: 14px;
-    }
-    
-    .game-button {
-        width: 180px;
-        height: 105px;
-    }
-
-
 .volume-btn {
     position: absolute;
-    bottom: 30px;
-    right: 30px;
-    width: 130px;
-    height: 130px;
     border: none;
     background-color: transparent;
     background-size: contain;
@@ -332,18 +292,13 @@ body {
 
 .volume-controls {
     position: absolute;
-    bottom: 87px;
-    right: 170px;
     display: flex;
-    justify-content: center;
-    gap:16px;
     flex-direction: row;
     align-items: center;
     z-index: 100;
 }
 
 .volume-slider {
-    width: 160px;
     height: 8px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
@@ -391,24 +346,72 @@ body {
     background: rgba(255, 255, 255, 0.4);
 }
 
-
-
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 769px) {
     .volume-btn {
-        bottom: 15px;
+        bottom: 30px;
+        right: 30px;
+        width: 130px;
+        height: 130px;
+    }
+    
+    .volume-controls {
+        bottom: 87px;
+        right: 170px;
+    }
+    
+    .volume-slider {
+        width: 160px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 440px) {
+    .players-panel {
+        padding: 20px 15px;
+        gap: 15px;
+    }
+    
+    .title {
+        font-size: 22px;
+    }
+    
+    .player-input {
+        font-size: 15px;
+        padding: 10px 12px;
+    }
+    
+    .add-button {
+        height: 42px;
+        font-size: 22px;
+    }
+    
+    .players-container {
+        min-height: 120px;
+        max-height: 180px;
+    }
+    
+    .player-tag {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+    
+    .game-button {
+        width: 180px;
+        height: 105px;
+    }
+    
+    .volume-btn {
+        top: 640px;
         right: 15px;
         width: 90px;
         height: 90px;
     }
     
     .volume-controls {
-        bottom: 55px;  /* Posiciona más abajo, cerca del volumeBtn */
-        right: 100px;  /* Más cerca del botón */
+        bottom: 55px;
+        right: 100px;
     }
     
     .volume-slider {
-        width: 100px;  /* Más pequeño en móvil */
-        height: 8px;
+        width: 110px;
     }
-}
 }
