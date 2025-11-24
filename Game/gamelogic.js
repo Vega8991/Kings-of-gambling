@@ -78,7 +78,7 @@ async function spin() {
             const video = document.getElementById("winnerVideo");
 
             if (video && videoContainer) {
-                video.src = "https://res.cloudinary.com/dcgb3jhf3/video/upload/v1732457808/video_final_billetes_Hecho_con_Clipchamp_bc82sx.mp4";
+                video.src = "https://res.cloudinary.com/dcgb3jhf3/video/upload/v1763980171/video_final_billetes_Hecho_con_Clipchamp_tdrvpm.webm";
                 videoContainer.style.display = "block";
                 video.muted = false;
                 video.play().catch(() => {
