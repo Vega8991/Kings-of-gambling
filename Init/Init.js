@@ -1,23 +1,23 @@
 const backgroundMusic = document.getElementById('backgroundMusic');
 const volumeBtn = document.getElementById('volumeBtn');
 
-let musicEnabled = false;
+window.musicEnabled = false;
 
 let savedState = localStorage.getItem('musicaActivada');
 
 if (savedState === null) {
-    musicEnabled = true;
+    window.musicEnabled = true;
 } else {
     if (savedState === 'true') {
-        musicEnabled = true;
+        window.musicEnabled = true;
     } else {
-        musicEnabled = false;
+        window.musicEnabled = false;
     }
 }
 
-function updateVolumeButton() {
+window.updateVolumeButton = function() {
     if (volumeBtn) {
-        if (musicEnabled === false) {
+        if (window.musicEnabled === false) {
             volumeBtn.classList.add('music-off');
         } else {
             volumeBtn.classList.remove('music-off');
@@ -25,8 +25,8 @@ function updateVolumeButton() {
     }
 }
 
-function tryPlayMusic() {
-    if (musicEnabled === true && backgroundMusic) {
+window.tryPlayMusic = function() {
+    if (window.musicEnabled === true && backgroundMusic) {
         let savedTime = localStorage.getItem('musicCurrentTime');
         if (savedTime) {
             backgroundMusic.currentTime = parseFloat(savedTime);
@@ -60,8 +60,8 @@ window.addEventListener('beforeunload', function() {
 });
 
 window.addEventListener('load', function() {
-    updateVolumeButton();
-    tryPlayMusic();
+    window.updateVolumeButton();
+    window.tryPlayMusic();
     
     let volumeSlider = document.getElementById('volumeSlider');
     let savedVolume = localStorage.getItem('musicVolume');
@@ -79,14 +79,14 @@ window.addEventListener('load', function() {
 
 if (volumeBtn) {
     volumeBtn.addEventListener('click', function() {
-        if (musicEnabled === true) {
-            musicEnabled = false;
+        if (window.musicEnabled === true) {
+            window.musicEnabled = false;
             if (backgroundMusic) {
                 backgroundMusic.pause();
                 localStorage.setItem('musicCurrentTime', backgroundMusic.currentTime);
             }
         } else {
-            musicEnabled = true;
+            window.musicEnabled = true;
             if (backgroundMusic) {
                 let savedTime = localStorage.getItem('musicCurrentTime');
                 if (savedTime) {
@@ -97,9 +97,9 @@ if (volumeBtn) {
             }
         }
         
-        localStorage.setItem('musicaActivada', musicEnabled);
+        localStorage.setItem('musicaActivada', window.musicEnabled);
         
-        updateVolumeButton();
+        window.updateVolumeButton();
     });
 }
 

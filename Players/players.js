@@ -151,7 +151,7 @@ function addNewPlayer() {
     let playerName = playerInput.value.trim();
     
     if (playerName === '') {
-        alert('Por favor, ingresa un nombre');
+        alert('Please, add a name');
         return;
     }
     
@@ -164,12 +164,12 @@ function addNewPlayer() {
     }
     
     if (playerExists === true) {
-        alert('Este jugador ya ha sido agregado');
+        alert('Player already exists');
         return;
     }
     
     if (players.length >= 20) {
-        alert('Máximo 20 jugadores permitidos');
+        alert('20 players max');
         return;
     }
     
@@ -245,14 +245,14 @@ function checkStartButtonStatus() {
 
 startGameBtn.addEventListener('click', function() {
     if (players.length === 0) {
-        alert('Debes agregar al menos un jugador para comenzar');
+        alert('You must add one payer at least to start');
         return;
     }
     
     savePlayersToLocalStorage();
     let playersText = JSON.stringify(players);
     localStorage.setItem('playerNames', playersText);
-    console.log('Iniciando juego con los siguientes jugadores:', players);
+    console.log('Starting game with this players: ', players);
     window.location.href = '../Game/game.html';
 });
 

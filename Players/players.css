@@ -264,123 +264,8 @@ body {
     padding: 40px 20px;
 }
 
-@media screen and (max-width: 480px) {
-    .container {
-        padding: 15px;
-        align-items: flex-start;
-        padding-top: 30px;
-    }
-    
-    .players-panel {
-        padding: 25px 20px;
-        min-width: auto;
-        max-width: 100%;
-        border-radius: 20px;
-        gap: 20px;
-    }
-    
-    .backBtn {
-        top: 10px;
-        right: 10px;
-        font-size: 24px;
-        width: 28px;
-        height: 28px;
-    }
-    
-    .title {
-        font-size: 24px;
-        margin-bottom: 5px;
-    }
-    
-    .input-section {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .player-input {
-        width: 100%;
-        font-size: 16px;
-        padding: 12px 15px;
-    }
-    
-    .add-button {
-        width: 100%;
-        height: 45px;
-        border-radius: 10px;
-        font-size: 24px;
-    }
-    
-    .players-container {
-        min-height: 150px;
-        max-height: 200px;
-        padding: 10px;
-    }
-    
-    .player-tag {
-        padding: 10px 12px;
-        font-size: 15px;
-    }
-    
-    .remove-button {
-        width: 28px;
-        height: 28px;
-        font-size: 14px;
-    }
-    
-    .game-button {
-        width: 220px;
-        height: 125px;
-        margin-top: 10px;
-    }
-    
-    .empty-message {
-        font-size: 14px;
-        padding: 30px 15px;
-    }
-}
-
-@media screen and (max-width: 360px) {
-    .players-panel {
-        padding: 20px 15px;
-        gap: 15px;
-    }
-    
-    .title {
-        font-size: 22px;
-    }
-    
-    .player-input {
-        font-size: 15px;
-        padding: 10px 12px;
-    }
-    
-    .add-button {
-        height: 42px;
-        font-size: 22px;
-    }
-    
-    .players-container {
-        min-height: 120px;
-        max-height: 180px;
-    }
-    
-    .player-tag {
-        padding: 8px 10px;
-        font-size: 14px;
-    }
-    
-    .game-button {
-        width: 180px;
-        height: 105px;
-    }
-}
-
 .volume-btn {
     position: absolute;
-    bottom: 30px;
-    right: 30px;
-    width: 130px;
-    height: 130px;
     border: none;
     background-color: transparent;
     background-size: contain;
@@ -407,18 +292,13 @@ body {
 
 .volume-controls {
     position: absolute;
-    bottom: 87px;
-    right: 170px;
     display: flex;
-    justify-content: center;
-    gap:16px;
     flex-direction: row;
     align-items: center;
     z-index: 100;
 }
 
 .volume-slider {
-    width: 160px;
     height: 8px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
@@ -466,37 +346,72 @@ body {
     background: rgba(255, 255, 255, 0.4);
 }
 
-.return-page-btn {   
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 170px;
-    height: 170px;
-    background-image: url('https://res.cloudinary.com/dahfnhc1h/image/upload/v1763050432/ChatGPT_Image_10_nov_2025_11_22_03_1_1_aruqoj.png');
-    border: none;
-    background-color: transparent;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 0;
-    z-index: 100;
+@media screen and (min-width: 769px) {
+    .volume-btn {
+        bottom: 30px;
+        right: 30px;
+        width: 130px;
+        height: 130px;
+    }
+    
+    .volume-controls {
+        bottom: 87px;
+        right: 170px;
+    }
+    
+    .volume-slider {
+        width: 160px;
+    }
 }
 
-.return-page-btn:hover {
-    transform: scale(1.08);
-}
-
-.return-page-btn:active {
-    transform: scale(0.92);
-}
-
-@media screen and (max-width: 480px) {
-    .return-page-btn {
-        width: 70px;
-        height: 70px;
-        top: 12px;
-        left: 12px;
+@media screen and (min-width: 375px) and (max-width: 440px) {
+    .players-panel {
+        padding: 20px 15px;
+        gap: 15px;
+    }
+    
+    .title {
+        font-size: 22px;
+    }
+    
+    .player-input {
+        font-size: 15px;
+        padding: 10px 12px;
+    }
+    
+    .add-button {
+        height: 42px;
+        font-size: 22px;
+    }
+    
+    .players-container {
+        min-height: 120px;
+        max-height: 180px;
+    }
+    
+    .player-tag {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+    
+    .game-button {
+        width: 180px;
+        height: 105px;
+    }
+    
+    .volume-btn {
+        top: 640px;
+        right: 15px;
+        width: 90px;
+        height: 90px;
+    }
+    
+    .volume-controls {
+        bottom: 55px;
+        right: 100px;
+    }
+    
+    .volume-slider {
+        width: 110px;
     }
 }

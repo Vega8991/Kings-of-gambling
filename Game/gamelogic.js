@@ -70,9 +70,31 @@ async function spin() {
         let winner = playerNames[0]; 
 
         playWinnerSound();
+
         setTimeout(() => {
             playCoinsSound();
+
+            const videoContainer = document.getElementById("winnerVideoContainer");
+            const video = document.getElementById("winnerVideo");
+
+            if (video && videoContainer) {
+                // Poner vídeo FULLSCREEN
+                video.src = "https://res.cloudinary.com/dcgb3jhf3/video/upload/v1/billetes_1_bzfhlv.mp4";
+
+                videoContainer.style.display = "block";
+                video.muted = false;
+
+                // Intentar autoplay
+                video.play().catch(() => {
+                    // En caso de bloqueo, reintentar
+                    setTimeout(() => video.play(), 300);
+                });
+            }
+
         }, 1000);
+
+
+
 
         resultDiv.innerHTML = '🎉 ¡' + winner + ' ES EL GANADOR! <img src="' + WIN_SYMBOL + '" class="result-image" alt="Winner">';
         resultDiv.style.color = '#00ff00';

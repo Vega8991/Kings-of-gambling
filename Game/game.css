@@ -539,19 +539,10 @@ body.game-page {
     }
 }
 
-#winnerVideoContainer {
-    display: none;           
-    position: fixed;
-    inset: 0;             
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.85);
-    z-index: 2500;            
-    pointer-events: none;     
-}
-
-#winnerVideoContainer video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;       
+@media screen and (max-width: 390px) {
+    .play-again-btn {
+        width: 160px;
+        height: 70px;
+        top: 62%;
+    }
 }
