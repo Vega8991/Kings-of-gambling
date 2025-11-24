@@ -78,15 +78,10 @@ async function spin() {
             const video = document.getElementById("winnerVideo");
 
             if (video && videoContainer) {
-                // Poner vídeo FULLSCREEN
-                video.src = "https://res.cloudinary.com/dcgb3jhf3/video/upload/v1/billetes_1_bzfhlv.mp4";
-
+                video.src = "https://res.cloudinary.com/dcgb3jhf3/video/upload/v1732457808/video_final_billetes_Hecho_con_Clipchamp_bc82sx.mp4";
                 videoContainer.style.display = "block";
                 video.muted = false;
-
-                // Intentar autoplay
                 video.play().catch(() => {
-                    // En caso de bloqueo, reintentar
                     setTimeout(() => video.play(), 300);
                 });
             }
