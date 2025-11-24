@@ -27,12 +27,11 @@ body.game-page {
     background-image: url("https://res.cloudinary.com/dsstkg5fn/image/upload/v1762948688/slot_background4_oduhv4.png");
 }
 
-/* BOTÓN RETURN GENERAL (arriba izquierda) */
 .return-page-btn {
     position: fixed;
     top: 20px;
     left: 20px;
-    width: 170px;   /* Tamaño grande */
+    width: 170px;
     height: 170px;
     background-image: url('https://res.cloudinary.com/dahfnhc1h/image/upload/v1763050432/ChatGPT_Image_10_nov_2025_11_22_03_1_1_aruqoj.png');
     background-size: contain;
@@ -42,7 +41,7 @@ body.game-page {
     border: none;
     cursor: pointer;
     transition: transform 0.30s ease;
-    z-index: 3000; /* encima de la máquina */
+    z-index: 3000;
 }
 
 .return-page-btn:hover {
@@ -53,7 +52,6 @@ body.game-page {
     transform: scale(0.92);
 }
 
-/* BOTÓN DE VOLUMEN EN GAME PAGE */
 .volume-btn {
     position: fixed;
     border: none;
@@ -139,7 +137,6 @@ body.game-page {
     background: rgba(255, 255, 255, 0.4);
 }
 
-/* CONTENEDOR PRINCIPAL DEL JUEGO */
 .game-wrapper {
     display: flex;
     gap: 40px;
@@ -147,44 +144,41 @@ body.game-page {
     max-height: 95vh;
 }
 
-/* CONTENEDOR DE LA MÁQUINA */
 .slot-machine-container {
     position: relative;
-    width: 552px;  /* 75% del ancho original (736 * 0.75) */
-    height: 828px; /* 75% del alto original (1104 * 0.75) */
+    width: 552px;
+    height: 828px;
     flex-shrink: 0;
 }
 
-/* ELEMENTOS INTERACTIVOS */
 .game-elements {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Debajo de la imagen */
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 210px; /* 75% de 280px */
+    padding-top: 210px;
 }
 
-/* RODILLOS */
 .reels-container {
     display: flex;
     gap: 0px;
     justify-content: center;
-    margin-bottom: 135px; /* 75% de 180px */
-    margin-right: 37.5px; /* 75% de 50px */
-    padding-top: 142.5px; /* 75% de 190px */
+    margin-bottom: 135px;
+    margin-right: 37.5px;
+    padding-top: 142.5px;
 }
 
 .reel {
-    width: 109px;  /* 75% de 145px */
-    height: 165px; /* 75% de 220px */
+    width: 109px;
+    height: 165px;
     border: none;
-    border-radius: 11px; /* 75% de 15px */
+    border-radius: 11px;
     background: rgb(240, 233, 207);
     box-shadow: inset 5px 5px 20px #000;
     overflow: hidden;
@@ -205,7 +199,7 @@ body.game-page {
 }
 
 .symbol {
-    height: 165px; /* 75% de 220px - Coincide con la altura del rodillo */
+    height: 165px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -216,7 +210,7 @@ body.game-page {
 }
 
 .symbol-image {
-    width: 105px;  /* 75% de 140px */
+    width: 105px;
     height: 105px;
     object-fit: contain;
     display: block;
@@ -233,10 +227,9 @@ body.game-page {
     animation: spin 0.1s linear infinite;
 }
 
-/* MENSAJE DE RESULTADO */
 .result-display {
-    width: 380px; /* 75% de 600px */
-    height: 95px; /* 75% de 120px */
+    width: 380px;
+    height: 95px;
     margin-top: -22px;
     margin-left: -7px;
     display: flex;
@@ -244,7 +237,7 @@ body.game-page {
     justify-content: center;
     background: rgb(240, 233, 207);
     box-shadow: inset 5px 5px 20px #000; 
-    margin-bottom: 30px; /* 75% de 40px */
+    margin-bottom: 30px;
 }
 
 #result {
@@ -268,9 +261,6 @@ body.game-page {
     object-fit: contain;
 }
 
-
-
-/* IMAGEN DE LA MÁQUINA */
 .slot-machine-overlay {
     position: absolute;
     top: 0;
@@ -281,14 +271,13 @@ body.game-page {
     pointer-events: none; 
 }
 
-/* ÁREA CLICKEABLE DE LA PALANCA */
 .lever-button {
     position: absolute;
-    top: 274px; /* 75% de 365px */
-    right: 19.5px; /* 75% de 26px */
-    width: 49px; /* 75% de 65px */
-    height: 49px; /* Mismo valor que width para crear un círculo perfecto */
-    border-radius: 50%; /* Convierte el elemento en círculo */
+    top: 274px;
+    right: 19.5px;
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
     z-index: 3;
     cursor: pointer;
     box-shadow: 
@@ -296,7 +285,6 @@ body.game-page {
         0 0 40px rgba(255, 215, 0, 0.4),
         0 0 60px rgba(255, 215, 0, 0.2);
     animation: resplandor-pulsante 2s ease-in-out infinite;
-    /* Descomentar para debug: background: rgba(255, 0, 0, 0.3); */
 }
 
 @keyframes resplandor-pulsante {
@@ -322,8 +310,6 @@ body.game-page {
         0 0 120px rgba(255, 215, 0, 0.5);
 }
 
-
-/* (Cementerio) */
 .sidebar-container {
     background: rgba(20, 20, 20, 0.95);
     border: 3px solid #ff006e;
@@ -337,21 +323,27 @@ body.game-page {
     flex-shrink: 0;
 }
 
+@media screen and (max-width: 768px) {
+    .sidebar-container {
+        display: none;
+    }
+}
+
 .sidebar-container h3 {
     color: #ff006e;
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
     text-shadow: 0 0 15px rgba(255, 0, 110, 0.7);
-    flex-shrink: 0; /* Evita que el título se comprima */
+    flex-shrink: 0;
 }
 
 #eliminatedList {
     list-style: none;
     padding: 0;
     margin: 0;
-    overflow-y: auto; /* Scroll cuando haya muchos nombres */
-    flex: 1; /* Ocupa el espacio restante */
+    overflow-y: auto;
+    flex: 1;
 }
 
 #eliminatedList li {
@@ -394,21 +386,18 @@ body.game-page {
         gap: 40px;
     }
     
-    .sidebar-container {
-        width: 350px;
+    .volume-slider {
+        width: 160px;
     }
 }
 
-/* ===========================
-    BOTÓN VOLVER A JUGAR
-   =========================== */
 .play-again-btn {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: fixed;
-    top: 50%;              /* Un poco por debajo del centro vertical */
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 260px;          /* Tamaño base del botón */
+    width: 260px;
     height: 210px;
     background-image: url('https://res.cloudinary.com/dahfnhc1h/image/upload/v1763070305/ChatGPT_Image_13_nov_2025_21_21_34_1_1_xjhspi.png');
     background-size: contain;
