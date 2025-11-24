@@ -76,6 +76,8 @@ async function spin() {
 
         resultDiv.innerHTML = '🎉 ¡' + winner + ' ES EL GANADOR! <img src="' + WIN_SYMBOL + '" class="result-image" alt="Winner">';
         resultDiv.style.color = '#00ff00';
+
+        showWinVideo();
             
         playerNames = [];
         let playersText = JSON.stringify(playerNames);

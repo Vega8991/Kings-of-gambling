@@ -81,6 +81,15 @@ if (volumeSlider && gameMusic) {
         let volume = this.value;
         gameMusic.volume = volume / 100;
         localStorage.setItem('musicVolume', volume);
+        
+        // También actualizar el volumen de todos los efectos de sonido
+        const soundEffects = ['leverSound', 'loseSound', 'winnerSound', 'coinsSound'];
+        soundEffects.forEach(id => {
+            const sound = document.getElementById(id);
+            if (sound) {
+                sound.volume = volume / 100;
+            }
+        });
     });
 }
 
@@ -90,13 +99,16 @@ function unlockGameSounds() {
     if (audioUnlocked) return;
     audioUnlocked = true;
 
+    let savedVolume = localStorage.getItem('musicVolume');
+    let volume = savedVolume ? savedVolume / 100 : 0.5;
+
     const ids = ['winnerSound', 'coinsSound', 'loseSound'];
     ids.forEach(id => {
         const a = document.getElementById(id);
         if (!a) return;
 
         a.muted = true;
-        a.volume = 1;
+        a.volume = volume;
         a.currentTime = 0;
         a.play().then(() => {
             a.pause();
@@ -113,8 +125,9 @@ function playLeverSound() {
     const sound = document.getElementById('leverSound');
     if (!sound) return;
 
+    let savedVolume = localStorage.getItem('musicVolume');
     sound.currentTime = 0;
-    sound.volume = 1;
+    sound.volume = savedVolume ? savedVolume / 100 : 0.5;
     sound.play().catch(err => {
         console.log('Error al reproducir leverSound:', err);
     });
@@ -124,8 +137,9 @@ function playLoseSound() {
     const sound = document.getElementById('loseSound');
     if (!sound) return;
 
+    let savedVolume = localStorage.getItem('musicVolume');
     sound.currentTime = 0;
-    sound.volume = 1;
+    sound.volume = savedVolume ? savedVolume / 100 : 0.5;
     sound.play().catch(err => {
         console.log('Error al reproducir loseSound:', err);
     });
@@ -135,9 +149,10 @@ function playWinnerSound() {
     const sound = document.getElementById('winnerSound');
     if (!sound) return;
 
+    let savedVolume = localStorage.getItem('musicVolume');
     sound.muted = false;
     sound.currentTime = 0;
-    sound.volume = 1;
+    sound.volume = savedVolume ? savedVolume / 100 : 0.5;
     console.log('Reproduciendo winnerSound');
     sound.play().catch(err => {
         console.log('Error al reproducir winnerSound:', err);
@@ -148,8 +163,9 @@ function playCoinsSound() {
     const sound = document.getElementById('coinsSound');
     if (!sound) return;
 
+    let savedVolume = localStorage.getItem('musicVolume');
     sound.currentTime = 0;
-    sound.volume = 1;
+    sound.volume = savedVolume ? savedVolume / 100 : 0.5;
     console.log('Reproduciendo coinsSound');
     sound.play().catch(err => {
         console.log('Error al reproducir coinsSound:', err);
