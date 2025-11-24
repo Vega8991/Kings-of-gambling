@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>King Of Gambling - El Juego</title>
     <link rel="stylesheet" href="game.css">
-    <source src="https://player.cloudinary.com/embed/?cloud_name=dcgb3jhf3&public_id=billetes_1_bzfhlv&profile=cld-default" type="video/mp4">
 </head>
 <body class="game-page">
     <button id="returnPageBtn" class="return-page-btn"></button>
@@ -76,22 +75,20 @@
             <h3>Cemetery</h3>
             <ul id="eliminatedList"></ul>
         </div>
-
     
         <button id="playAgainBtn" class="play-again-btn"></button>
     
     </div>
-
-    <div id="winVideoContainer" class="hidden">
-        <video id="winVideo" preload="auto"></video>
-    </div>
     
-    <!-- Scripts en orden de dependencia -->
     <script src="sounds.js"></script>
     <script src="spinreel.js"></script>
     <script src="players.js"></script>
     <script src="gamelogic.js"></script>
     <script src="game.js"></script>
-    <script src="video-win.js"></script>
+
+    <div id="winnerVideoContainer">
+    <video id="winnerVideo" autoplay playsinline></video>
+    </div>
+
 </body>
 </html>
