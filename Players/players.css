@@ -346,27 +346,6 @@ body {
     background: rgba(255, 255, 255, 0.4);
 }
 
-.return-page-btn {
-    position: absolute;
-    border: none;
-    background-color: transparent;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767245/player_rjg1qr.png');
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 0;
-    z-index: 100;
-}
-
-.return-page-btn:hover {
-    transform: scale(1.1);
-}
-
-.return-page-btn:active {
-    transform: scale(0.95);
-}
 
 @media screen and (min-width: 769px) {
     .volume-btn {
@@ -385,12 +364,6 @@ body {
         width: 160px;
     }
     
-    .return-page-btn {
-        bottom: 30px;
-        left: 30px;
-        width: 130px;
-        height: 130px;
-    }
 }
 
 @media screen and (min-width: 375px) and (max-width: 440px) {
@@ -400,7 +373,7 @@ body {
     }
     
     .title {
-        font-size: 22px;
+        font-size: 24px;
     }
     
     .player-input {
@@ -429,25 +402,20 @@ body {
     }
     
     .volume-btn {
-        bottom: 5px;
-        right: 15px;
-        width: 80px;
-        height: 80px;
+        bottom: 20px;
+        right: 20px;
+        width: 70px;
+        height: 70px;
     }
     
     .volume-controls {
-        bottom: 35px;
-        left: 15px;
+        bottom: 50px;
+        right: 95px;
     }
     
     .volume-slider {
-        width: 150px;
+        width: 110px;
+        height: 6px;
     }
     
-    .return-page-btn {
-        bottom: 15px;
-        left: 15px;
-        width: 80px;
-        height: 80px;
-    }
 }
