@@ -10,10 +10,10 @@ let reelCount = 3;
 
 function getSymbolHeight() {
     let screenWidth = window.innerWidth;
-    if (screenWidth <= 390) {
-        return 91;
-    } else if (screenWidth <= 480) {
-        return 99;
+    if (screenWidth >= 375 && screenWidth <= 440) {
+        return 82.5;
+    } else if (screenWidth < 769) {
+        return 82.5;
     } else {
         return 165;
     }
@@ -24,6 +24,7 @@ let spinDuration = 3000;
 
 window.addEventListener('resize', function() {
     symbolHeight = getSymbolHeight();
+    initReels();
 });
 
 function initReels() {
