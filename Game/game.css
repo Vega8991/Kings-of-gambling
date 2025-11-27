@@ -542,9 +542,10 @@ body.game-page {
 #winnerVideoContainer {
     display: none;           
     position: fixed;
-    inset: 0;             
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     background: transparent;
     z-index: 2500;            
     pointer-events: none;     
@@ -553,6 +554,12 @@ body.game-page {
 #winnerVideoContainer video {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     mix-blend-mode: screen;
+}
+
+@media screen and (max-width: 768px) {
+    #winnerVideoContainer {
+        display: none !important;
+    }
 }
