@@ -1,0 +1,565 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+body.lobby-page {
+    background-image: url("https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767247/Imagen_fondo_desk_gbbhx1.png"); 
+}
+
+body.game-page {
+    background-image: url("https://res.cloudinary.com/dsstkg5fn/image/upload/v1762948688/slot_background4_oduhv4.png");
+}
+
+.return-page-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 170px;
+    height: 170px;
+    background-image: url('https://res.cloudinary.com/dahfnhc1h/image/upload/v1763050432/ChatGPT_Image_10_nov_2025_11_22_03_1_1_aruqoj.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.30s ease;
+    z-index: 3000;
+}
+
+.return-page-btn:hover {
+    transform: scale(1.08);
+}
+
+.return-page-btn:active {
+    transform: scale(0.92);
+}
+
+.volume-btn {
+    position: fixed;
+    border: none;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/subir-volumen_zc3bzx.png');
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    z-index: 200;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.volume-btn:hover {
+    transform: scale(1.1);
+}
+
+.volume-btn:active {
+    transform: scale(0.95);
+}
+
+.volume-btn.music-off {
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/bajar-volumen_q4uvtd.png');
+}
+
+.volume-controls {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 200;
+}
+
+.volume-slider {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: all 0.3s ease;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ff006e;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.8);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ff006e;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+}
+
+.volume-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.8);
+}
+
+.volume-slider:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.game-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    max-height: 95vh;
+}
+
+.slot-machine-container {
+    position: relative;
+    width: 552px;
+    height: 828px;
+    flex-shrink: 0;
+}
+
+.game-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 210px;
+}
+
+.reels-container {
+    display: flex;
+    gap: 0px;
+    justify-content: center;
+    margin-bottom: 135px;
+    margin-right: 37.5px;
+    padding-top: 142.5px;
+}
+
+.reel {
+    width: 109px;
+    height: 165px;
+    border: none;
+    border-radius: 11px;
+    background: rgb(240, 233, 207);
+    box-shadow: inset 5px 5px 20px #000;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.symbols {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    will-change: transform;
+}
+
+.symbol {
+    height: 165px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    opacity: 1;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.symbol-image {
+    width: 105px;
+    height: 105px;
+    object-fit: contain;
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes spin {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
+}
+
+.spinning {
+    animation: spin 0.1s linear infinite;
+}
+
+.result-display {
+    width: 380px;
+    height: 95px;
+    margin-top: -22px;
+    margin-left: -7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(240, 233, 207);
+    box-shadow: inset 5px 5px 20px #000; 
+    margin-bottom: 30px;
+}
+
+#result {
+    font-size: 21px;
+    font-weight: bold;
+    color: #ff0000;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 5px;
+    line-height: 1.3;
+}
+
+#result img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.slot-machine-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; 
+    pointer-events: none; 
+}
+
+.lever-button {
+    position: absolute;
+    top: 274px;
+    right: 19.5px;
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+    z-index: 3;
+    cursor: pointer;
+    box-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.6),
+        0 0 40px rgba(255, 215, 0, 0.4),
+        0 0 60px rgba(255, 215, 0, 0.2);
+    animation: resplandor-pulsante 2s ease-in-out infinite;
+}
+
+@keyframes resplandor-pulsante {
+    0%, 100% {
+        box-shadow: 
+            0 0 20px rgba(255, 215, 0, 0.6),
+            0 0 40px rgba(255, 215, 0, 0.4),
+            0 0 60px rgba(255, 215, 0, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 0 30px rgba(255, 215, 0, 0.8),
+            0 0 60px rgba(255, 215, 0, 0.6),
+            0 0 90px rgba(255, 215, 0, 0.4);
+    }
+}
+
+.lever-button:hover {
+    opacity: 0.8;
+    box-shadow: 
+        0 0 40px rgba(255, 215, 0, 0.9),
+        0 0 80px rgba(255, 215, 0, 0.7),
+        0 0 120px rgba(255, 215, 0, 0.5);
+}
+
+.sidebar-container {
+    background: rgba(20, 20, 20, 0.95);
+    border: 3px solid #ff006e;
+    border-radius: 25px;
+    padding: 40px;
+    width: 350px;
+    max-height: 90vh;
+    box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar-container {
+        display: none;
+    }
+}
+
+.sidebar-container h3 {
+    color: #ff006e;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-shadow: 0 0 15px rgba(255, 0, 110, 0.7);
+    flex-shrink: 0;
+}
+
+#eliminatedList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    flex: 1;
+}
+
+#eliminatedList li {
+    background: #1a1a1a;
+    color: #888;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    text-decoration: line-through;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #444;
+}
+
+@media screen and (min-width: 769px) {
+    .return-page-btn {
+        top: 20px;
+        left: 20px;
+        width: 170px;
+        height: 170px;
+    }
+    
+    .volume-btn {
+        bottom: 30px;
+        right: 30px;
+        width: 130px;
+        height: 130px;
+    }
+    
+    .volume-controls {
+        bottom: 87px;
+        right: 170px;
+    }
+    
+    .volume-slider {
+        width: 160px;
+    }
+    
+    .game-wrapper {
+        gap: 40px;
+    }
+    
+    .volume-slider {
+        width: 160px;
+    }
+}
+
+.play-again-btn {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    height: 210px;
+    background-image: url('https://res.cloudinary.com/dahfnhc1h/image/upload/v1763070305/ChatGPT_Image_13_nov_2025_21_21_34_1_1_xjhspi.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 3000;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.play-again-btn:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+    filter: brightness(1.1);
+}
+
+.play-again-btn:active {
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+@media screen and (min-width: 375px) and (max-width: 440px) {
+    body {
+        padding: 5px;
+        overflow-y: auto;
+        height: auto;
+    }
+    
+    .game-wrapper {
+        flex-direction: column;
+        gap: 20px;
+        max-height: none;
+        padding: 10px 0;
+    }
+    
+    .slot-machine-container {
+        width: 276px;
+        height: 414px;
+        flex-shrink: 0;
+    }
+    
+    .game-elements {
+        padding-top: 105px;
+    }
+    
+    .reels-container {
+        margin-bottom: 67.5px;
+        margin-right: 18.75px;
+        padding-top: 71.25px;
+        gap: 0px;
+    }
+    
+    .reel {
+        width: 54.5px;
+        height: 82.5px;
+        border-radius: 5.5px;
+    }
+    
+    .symbol {
+        height: 82.5px;
+    }
+    
+    .symbol-image {
+        width: 52.5px;
+        height: 52.5px;
+    }
+    
+    .result-display {
+        width: 190px;
+        height: 47.5px;
+        margin-top: -11px;
+        margin-left: -3.5px;
+        margin-bottom: 15px;
+    }
+    
+    #result {
+        font-size: 11px;
+        gap: 4px;
+        padding: 3px;
+    }
+    
+    #result img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .lever-button {
+        top: 137px;
+        right: 9.75px;
+        width: 24.5px;
+        height: 24.5px;
+    }
+    
+    .sidebar-container {
+        width: 90%;
+        max-width: 350px;
+        padding: 20px;
+        max-height: 300px;
+    }
+    
+    .sidebar-container h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    #eliminatedList li {
+        padding: 8px 10px;
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    .return-page-btn {
+        top: 8px;
+        left: 8px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .volume-btn {
+        bottom: 10px;
+        right: 10px;
+        width: 70px;
+        height: 70px;
+    }
+    
+    .volume-controls {
+        bottom: 10px;
+        right: 85px;
+    }
+    
+    .volume-slider {
+        width: 80px;
+    }
+    
+    .play-again-btn {
+        width: 180px;
+        height: 90px;
+        top: 50%;
+    }
+}
+
+#winnerVideoContainer {
+    display: none;           
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    z-index: 2500;            
+    pointer-events: none;     
+}
+
+#winnerVideoContainer video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: screen;
+}
+
+@media screen and (max-width: 768px) {
+    #winnerVideoContainer {
+        display: none !important;
+    }
+}

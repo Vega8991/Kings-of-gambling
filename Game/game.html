@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Of Gambling - El Juego</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body class="game-page">
+    <button id="returnPageBtn" class="return-page-btn"></button>
+
+<audio id="gameMusic" loop preload="auto">
+    <source src="https://res.cloudinary.com/dsstkg5fn/video/upload/v1763365091/wheelofdoom_nge5dw.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="leverSound" preload="auto">
+    <source src="https://res.cloudinary.com/dahfnhc1h/video/upload/v1763311297/SONIDO_PALANCA_puie88.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="loseSound" preload="auto">
+    <source src="https://res.cloudinary.com/dahfnhc1h/video/upload/v1763311296/SONIDO_PERDEDOR_etoy49.wav" type="audio/wav">
+</audio>
+
+<audio id="winnerSound" preload="auto">
+    <source src="https://res.cloudinary.com/dahfnhc1h/video/upload/v1763311296/SONIDO_GANADOR_tyghv1.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="coinsSound" preload="auto">
+    <source src="https://res.cloudinary.com/dahfnhc1h/video/upload/v1763341252/sonido_ganador_monedas-_-Hecho-con-Clipchamp_y27i0e.mp3" type="audio/mpeg">
+</audio>
+
+
+    <div class="volume-controls">
+        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="25">
+    </div>
+    
+    <button class="volume-btn" id="volumeBtn" title="Controlar música"></button>
+
+    <div class="game-wrapper">
+        
+        <div class="slot-machine-container">
+            
+            <div class="game-elements">
+                
+                <div class="reels-container">
+                    <div class="reel" id="reel1">
+                        <div class="symbols" id="symbols1"></div>
+                    </div>
+                    <div class="reel" id="reel2">
+                        <div class="symbols" id="symbols2"></div>
+                    </div>
+                    <div class="reel" id="reel3">
+                        <div class="symbols" id="symbols3"></div>
+                    </div>
+                </div>
+                
+                <div class="result-display">
+                    <div id="result"></div>
+                </div>
+                
+                <div class="buttons-container">
+                    <button id="spinButton" style="display: none;">GIRAR</button>
+                </div>
+                
+            </div>
+
+            <!-- IMAGEN DE LA MÁQUINA -->
+            <img src="https://res.cloudinary.com/dsstkg5fn/image/upload/v1762948685/cover_machine_std1uj.png" alt="Máquina Tragaperras" class="slot-machine-overlay">
+            
+            <div id="leverButton" class="lever-button"></div>
+            
+        </div>
+
+        <div class="sidebar-container">
+            <h3>Cemetery</h3>
+            <ul id="eliminatedList"></ul>
+        </div>
+    
+        <button id="playAgainBtn" class="play-again-btn"></button>
+    
+    </div>
+    
+    <script src="sounds.js"></script>
+    <script src="spinreel.js"></script>
+    <script src="players.js"></script>
+    <script src="gamelogic.js"></script>
+    <script src="game.js"></script>
+
+    <div id="winnerVideoContainer">
+        <video id="winnerVideo" autoplay playsinline></video>
+    </div>
+
+</body>
+</html>

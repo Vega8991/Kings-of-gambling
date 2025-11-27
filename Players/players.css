@@ -1,0 +1,453 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767247/Imagen_fondo_desk_gbbhx1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.players-panel {
+    background: rgba(20, 20, 20, 0.95);
+    border: 3px solid #ff006e;
+    border-radius: 25px;
+    padding: 40px;
+    width: 100%;
+    min-width: 300px;
+    max-width: 600px;
+    box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    position: relative;
+}
+
+.backBtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #ff006e;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 0;
+    line-height: 1;
+}
+
+.backBtn:hover {
+    color: #ff4d94;
+    transform: scale(1.1);
+}
+
+.backBtn:active {
+    transform: scale(0.95);
+}
+
+.title {
+    color: #ff006e;
+    font-size: 36px;
+    text-shadow: 0 0 15px rgba(255, 0, 110, 0.7);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.player-input {
+    flex: 1;
+    padding: 15px 20px;
+    font-size: 18px;
+    border: 2px solid #ff006e;
+    border-radius: 10px;
+    background: rgba(40, 40, 40, 0.9);
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.player-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.player-input:focus {
+    border-color: #ff4d94;
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.4);
+}
+
+.add-button {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ff006e;
+    border-radius: 10px;
+    background: #ff006e;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-button:hover {
+    background: #ff4d94;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.6);
+}
+
+.add-button:active {
+    transform: scale(0.98);
+}
+
+.players-container {
+    width: 100%;
+    min-height: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    background: rgba(40, 40, 40, 0.6);
+    border: 2px solid rgba(255, 0, 110, 0.3);
+    border-radius: 15px;
+}
+
+.players-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.players-container::-webkit-scrollbar-track {
+    background: rgba(40, 40, 40, 0.5);
+    border-radius: 10px;
+}
+
+.players-container::-webkit-scrollbar-thumb {
+    background: #ff006e;
+    border-radius: 10px;
+}
+
+.players-container::-webkit-scrollbar-thumb:hover {
+    background: #ff4d94;
+}
+
+.player-tag {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background: rgba(255, 0, 110, 0.2);
+    border: 2px solid #ff006e;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.player-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+.remove-button {
+    width: 25px;
+    height: 25px;
+    border: none;
+    background: #ff006e;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-button:hover {
+    background: #ff4d94;
+    transform: scale(1.1);
+}
+
+.remove-button:active {
+    transform: scale(0.95);
+}
+
+.game-button {
+    width: 350px;
+    height: 200px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.3s ease;
+    padding: 0;
+    outline: none;
+    margin-top: 20px;
+}
+
+.start-game-button {
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/start_ngotti.png');
+}
+
+.game-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    filter: brightness(1.1);
+}
+
+.game-button:active {
+    transform: translateY(-2px) scale(1.02);
+    filter: brightness(0.95);
+}
+
+.game-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+.game-button:disabled:hover {
+    transform: none;
+    filter: grayscale(1);
+}
+
+.empty-message {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+    padding: 40px 20px;
+}
+
+.volume-btn {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/subir-volumen_zc3bzx.png');
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    z-index: 100;
+}
+
+.volume-btn:hover {
+    transform: scale(1.1);
+}
+
+.volume-btn:active {
+    transform: scale(0.95);
+}
+
+.volume-btn.music-off {
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767246/bajar-volumen_q4uvtd.png');
+}
+
+.volume-controls {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 100;
+}
+
+.volume-slider {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: all 0.3s ease;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ff006e;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.8);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ff006e;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+}
+
+.volume-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.8);
+}
+
+.volume-slider:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.return-page-btn {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767245/player_rjg1qr.png');
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    z-index: 100;
+}
+
+.return-page-btn:hover {
+    transform: scale(1.1);
+}
+
+.return-page-btn:active {
+    transform: scale(0.95);
+}
+
+@media screen and (min-width: 769px) {
+    .volume-btn {
+        bottom: 30px;
+        right: 30px;
+        width: 130px;
+        height: 130px;
+    }
+    
+    .volume-controls {
+        bottom: 87px;
+        right: 170px;
+    }
+    
+    .volume-slider {
+        width: 160px;
+    }
+    
+    .return-page-btn {
+        bottom: 30px;
+        left: 30px;
+        width: 130px;
+        height: 130px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 440px) {
+    .players-panel {
+        padding: 20px 15px;
+        gap: 15px;
+    }
+    
+    .title {
+        font-size: 22px;
+    }
+    
+    .player-input {
+        font-size: 15px;
+        padding: 10px 12px;
+    }
+    
+    .add-button {
+        height: 42px;
+        font-size: 22px;
+    }
+    
+    .players-container {
+        min-height: 120px;
+        max-height: 180px;
+    }
+    
+    .player-tag {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+    
+    .game-button {
+        width: 180px;
+        height: 105px;
+    }
+    
+    .volume-btn {
+        bottom: 5px;
+        right: 15px;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .volume-controls {
+        bottom: 35px;
+        left: 15px;
+    }
+    
+    .volume-slider {
+        width: 150px;
+    }
+    
+    .return-page-btn {
+        bottom: 15px;
+        left: 15px;
+        width: 80px;
+        height: 80px;
+    }
+}

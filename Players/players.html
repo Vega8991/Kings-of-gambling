@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King of Gambling - Selección de Jugadores</title>
+    <link rel="stylesheet" href="players.css">
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="https://res.cloudinary.com/dsstkg5fn/video/upload/v1763365091/wheelofdoom_nge5dw.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <div class="volume-controls">
+        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="25">
+    </div>
+    <button class="volume-btn" id="volumeBtn" title="Controlar música"></button>
+
+    <button id="returnPageBtn" class="return-page-btn"></button>
+
+
+    <div class="container">
+        <div class="players-panel">
+            <button class="backBtn" id="backBtn">x</button>
+            <h1 class="title">Añade Jugadores</h1>
+            <div class="input-section">
+                <input type="text" id="playerInput" class="player-input" placeholder="Nombre del jugador..." maxlength="20">
+                <button id="addPlayerBtn" class="add-button">+</button>
+            </div>
+            
+            <div id="playersContainer" class="players-container">
+            </div>
+            
+            <button class="game-button start-game-button" id="startGameBtn"></button>
+        </div>
+    </div>
+
+    <script src="players.js"></script>
+</body>
+</html>

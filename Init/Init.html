@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King of Gambling</title>
+    <link rel="stylesheet" href="Init.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="https://res.cloudinary.com/dsstkg5fn/video/upload/v1763365091/wheelofdoom_nge5dw.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <div class="container">
+        <div class="volume-controls">
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="25">
+        </div>
+        <button class="volume-btn" id="volumeBtn" title="Controlar música"></button>
+        <div class="buttons-container">
+            <button class="game-button instructions-button"></button>
+            <button class="game-button start-button"></button>
+            <button class="game-button credits-button"></button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="Init.js"></script>
+</body>
+</html>
