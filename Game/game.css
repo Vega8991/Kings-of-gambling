@@ -241,11 +241,20 @@ body.game-page {
 }
 
 #result {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
     font-size: 21px;
     font-weight: bold;
-    color: #ff0000;
+    color: #770026 !important;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 
+        0 0 5px #DC143C,
+        0 0 10px #DC143C,
+        0 0 20px #DC143C,
+        0 0 30px #DC143C,
+        0 0 40px #DC143C,
+        0 0 50px #DC143C,
+        0 0 60px #DC143C;
     display: flex;
     align-items: center;
     justify-content: center;

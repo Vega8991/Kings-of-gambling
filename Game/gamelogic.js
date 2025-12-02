@@ -44,8 +44,8 @@ async function spin() {
         let removedName = eliminateRandomPlayer();
         playLoseSound();
 
-        resultDiv.innerHTML = removedName + ' ha sido eliminado! <img src="' + SKULL_SYMBOL + '" class="result-image">';
-        resultDiv.style.color = '#ff4444';
+        resultDiv.innerHTML = removedName + ' YOU DIED!';
+        resultDiv.style.color = '#4f0e1dff';
         
         if (playerNames.length === 1) {
             spinButton.disabled = true;
@@ -54,8 +54,8 @@ async function spin() {
                 playWinnerSound();
                 setTimeout(playCoinsSound, 700);
 
-                resultDiv.innerHTML = playerNames[0] + ' ES EL GANADOR! <img src="' + WIN_SYMBOL + '" class="result-image" alt="Winner">';
-                resultDiv.style.color = '#00ff00';
+                resultDiv.innerHTML = 'WINNER! ' + playerNames[0] + ' WINNER!';
+                resultDiv.style.color = '#4f0e1dff';
                 spinButton.style.display = 'none';
                 leverButton.style.display = 'none';
             }, 2500);
@@ -94,8 +94,8 @@ async function spin() {
 
 
 
-        resultDiv.innerHTML = '🎉 ¡' + winner + ' ES EL GANADOR! <img src="' + WIN_SYMBOL + '" class="result-image" alt="Winner">';
-        resultDiv.style.color = '#00ff00';
+        resultDiv.innerHTML =  playerNames[0] + ' YOU WIN!';
+        resultDiv.style.color = '#4f0e1dff';
             
         playerNames = [];
         let playersText = JSON.stringify(playerNames);
