@@ -567,3 +567,18 @@ body.game-page {
     object-fit: cover;
     mix-blend-mode: screen;
 }
+
+.swal2-mobile {
+    font-size: 0.9em !important;
+}
+
+.swal2-title-mobile {
+    font-size: 1.5em !important;
+}
+
+@media screen and (max-width: 768px) {
+    .swal2-popup {
+        max-height: 70vh !important;
+        overflow-y: auto !important;
+    }
+}
