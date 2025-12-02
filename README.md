@@ -78,34 +78,76 @@ npm test
 ### Main Lobby
 The main menu where you can start the game, read instructions, or view credits.
 
-<img src="images/Init.png" width="600" alt="Main Lobby">
+**Desktop View:**
+
+<img src="images/Init.png" width="600" alt="Main Lobby Desktop">
+
+**Mobile View:**
+
+<img src="images/Init-mobile.png" width="300" alt="Main Lobby Mobile">
 
 ### Instructions
 Learn how to play the game with clear and simple steps.
 
-<img src="images/Instructions.png" width="600" alt="Instructions">
+**Desktop View:**
+
+<img src="images/Instructions.png" width="600" alt="Instructions Desktop">
+
+**Mobile View:**
+
+<img src="images/Instructions-mobile.png" width="300" alt="Instructions Mobile">
 
 ### Player Management
 Add players to start the game. You need at least 2 players to begin.
 
-<img src="images/Players.png" width="600" alt="Add Players">
+**Desktop View:**
+
+<img src="images/Players.png" width="600" alt="Add Players Desktop">
+
+**Mobile View:**
+
+<img src="images/Players-mobile.png" width="300" alt="Add Players Mobile">
 
 ### Credits
 Meet the team behind Kings of Gambling.
 
-<img src="images/Credits.png" width="600" alt="Credits">
+**Desktop View:**
+
+<img src="images/Credits.png" width="600" alt="Credits Desktop">
+
+**Mobile View:**
+
+<img src="images/Credits-mobile.png" width="300" alt="Credits Mobile">
 
 ### Game Screen
 The slot machine with spinning reels and the cemetery list showing eliminated players.
 
-<img src="images/game.png" width="600" alt="Game Screen">
+**Desktop View:**
+
+<img src="images/game.png" width="600" alt="Game Screen Desktop">
+
+**Mobile View:**
+
+<img src="images/game-mobile.png" width="300" alt="Game Screen Mobile">
 
 ### Winner Celebration
 When a player wins, they see a celebration video and popup with options.
 
-<img src="images/Popup winner.png" width="600" alt="Winner Popup">
+**Desktop View:**
 
-<img src="images/Winner.png" width="600" alt="Winner Screen">
+<img src="images/Popup winner.png" width="600" alt="Winner Popup Desktop">
+
+**Mobile View:**
+
+<img src="images/popupWinner-mobile.png" width="300" alt="Winner Popup Mobile">
+
+**Desktop View:**
+
+<img src="images/Winner.png" width="600" alt="Winner Screen Desktop">
+
+**Mobile View:**
+
+<img src="images/winner-mobile.png" width="300" alt="Winner Screen Mobile">
 
 ## Team
 
