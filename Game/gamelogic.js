@@ -78,13 +78,11 @@ async function spin() {
             const video = document.getElementById("winnerVideo");
 
             if (video && videoContainer) {
-                // Usar video diferente para móvil
                 const isMobile = window.innerWidth <= 768;
                 video.src = isMobile 
                     ? "https://res.cloudinary.com/dcgb3jhf3/video/upload/v1764243478/Secuencia_02_glbqkg.webm"
                     : "https://res.cloudinary.com/dcgb3jhf3/video/upload/v1763980171/video_final_billetes_Hecho_con_Clipchamp_tdrvpm.webm";
-                // Forzar display block con !important para sobrescribir CSS
-                videoContainer.style.setProperty('display', 'block', 'important');
+                videoContainer.style.display = "block";
                 video.muted = false;
                 video.play().catch(() => {
                     setTimeout(() => video.play(), 300);
