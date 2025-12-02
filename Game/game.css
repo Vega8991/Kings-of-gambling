@@ -422,8 +422,8 @@ body.game-page {
 @media screen and (min-width: 375px) and (max-width: 440px) {
     body {
         padding: 5px;
-        overflow-y: auto;
-        height: auto;
+        overflow-y: hidden;
+        height: 100vh;
     }
     
     .game-wrapper {
@@ -557,10 +557,4 @@ body.game-page {
     height: 100%;
     object-fit: cover;
     mix-blend-mode: screen;
-}
-
-@media screen and (max-width: 768px) {
-    #winnerVideoContainer {
-        display: none !important;
-    }
 }
