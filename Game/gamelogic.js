@@ -87,20 +87,74 @@ async function spin() {
                 
                 video.onended = function() {
                     videoContainer.style.display = "none";
+                    const returnBtn = document.getElementById('returnPageBtn');
+                    if (returnBtn) returnBtn.style.display = 'none';
+                    
+                    const isMobile = window.innerWidth <= 768;
                     Swal.fire({
                         title: 'WINNER',
-                        html: '<div style="font-size: 28px; font-weight: bold; color: #ff006e;">' + winner + '</div><div style="margin-top: 15px; font-size: 18px;">Has won the game!</div>',
+                        html: '<div style="font-size: ' + (isMobile ? '20px' : '28px') + '; font-weight: bold; color: #ff006e;">' + winner + '</div><div style="margin-top: 10px; font-size: ' + (isMobile ? '14px' : '18px') + ';">Has won the game!</div>',
                         imageUrl: 'https://res.cloudinary.com/dsstkg5fn/image/upload/v1762948684/7win_xttuzb.png',
-                        imageWidth: 150,
-                        imageHeight: 150,
+                        imageWidth: isMobile ? 80 : 150,
+                        imageHeight: isMobile ? 80 : 150,
+                        showDenyButton: true,
+                        showCancelButton: true,
                         confirmButtonText: 'Play Again',
+                        denyButtonText: 'Lobby',
+                        cancelButtonText: 'Credits',
                         confirmButtonColor: '#ff006e',
+                        denyButtonColor: '#444',
+                        cancelButtonColor: '#666',
                         background: 'rgba(20, 20, 20, 0.95)',
                         color: '#fff',
-                        backdrop: 'rgba(0,0,0,0.8)'
+                        backdrop: 'rgba(0,0,0,0.8)',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        width: isMobile ? '90%' : '32em',
+                        padding: isMobile ? '1.5em' : '3em',
+                        customClass: {
+                            popup: isMobile ? 'swal2-mobile' : '',
+                            title: isMobile ? 'swal2-title-mobile' : ''
+                        }
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.href = '../Players/players.html';
+                        } else if (result.isDenied) {
+                            window.location.href = '../Init/Init.html';
+                        } else if (result.dismiss === Swal.DismissReason.cancel) {
+                            Swal.fire({
+                                title: 'Developers',
+                                html: `
+                                    <div style="display: flex; flex-direction: column; gap: 15px; align-items: center; margin-top: 20px;">
+                                        <p style="color: white; font-size: 18px; line-height: 1.6;">
+                                            <strong style="color: #ff006e;">Scrum Master</strong><br>
+                                            <span style="font-size: 14px; color: #ccc;">Manuel Vega Viñuelas</span>
+                                        </p>
+                                        <hr style="width: 80%; border: 1px solid #ff006e; opacity: 0.3;">
+                                        <p style="color: white; font-size: 18px; line-height: 1.6;">
+                                            <strong style="color: #ff006e;">Product Manager</strong><br>
+                                            <span style="font-size: 14px; color: #ccc;">George Alexandru Nechita</span>
+                                        </p>
+                                        <hr style="width: 80%; border: 1px solid #ff006e; opacity: 0.3;">
+                                        <p style="color: white; font-size: 18px; line-height: 1.6;">
+                                            <strong style="color: #ff006e;">Desarrolladores</strong><br>
+                                            <span style="font-size: 14px; color: #ccc;">David Beneito, Guillermo José Suárez, Antonio Ginés</span>
+                                        </p>
+                                    </div>
+                                `,
+                                showConfirmButton: false,
+                                showCancelButton: false,
+                                showCloseButton: true,
+                                allowOutsideClick: true,
+                                background: 'rgba(20, 20, 20, 0.95)',
+                                customClass: {
+                                    popup: 'swal2-popup',
+                                    title: 'swal2-title',
+                                    closeButton: 'swal2-close'
+                                }
+                            }).then(() => {
+                                window.location.href = '../Init/Init.html';
+                            });
                         }
                     });
                 };
