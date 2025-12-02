@@ -8,7 +8,7 @@ body {
     font-family: Arial, sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     background-image: url('https://res.cloudinary.com/dsstkg5fn/image/upload/v1762767247/Imagen_fondo_desk_gbbhx1.png');
     background-size: cover;
     background-position: center;
@@ -265,7 +265,7 @@ body {
 }
 
 .volume-btn {
-    position: absolute;
+    position: fixed;
     border: none;
     background-color: transparent;
     background-size: contain;
@@ -291,7 +291,7 @@ body {
 }
 
 .volume-controls {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: row;
     align-items: center;
