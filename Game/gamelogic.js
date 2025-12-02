@@ -84,6 +84,27 @@ async function spin() {
                     : "https://res.cloudinary.com/dcgb3jhf3/video/upload/v1763980171/video_final_billetes_Hecho_con_Clipchamp_tdrvpm.webm";
                 videoContainer.style.display = "block";
                 video.muted = false;
+                
+                video.onended = function() {
+                    videoContainer.style.display = "none";
+                    Swal.fire({
+                        title: 'WINNER',
+                        html: '<div style="font-size: 28px; font-weight: bold; color: #ff006e;">' + winner + '</div><div style="margin-top: 15px; font-size: 18px;">Has won the game!</div>',
+                        imageUrl: 'https://res.cloudinary.com/dsstkg5fn/image/upload/v1762948684/7win_xttuzb.png',
+                        imageWidth: 150,
+                        imageHeight: 150,
+                        confirmButtonText: 'Play Again',
+                        confirmButtonColor: '#ff006e',
+                        background: 'rgba(20, 20, 20, 0.95)',
+                        color: '#fff',
+                        backdrop: 'rgba(0,0,0,0.8)'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '../Players/players.html';
+                        }
+                    });
+                };
+                
                 video.play().catch(() => {
                     setTimeout(() => video.play(), 300);
                 });
@@ -103,10 +124,6 @@ async function spin() {
 
         spinButton.style.display = 'none';
         leverButton.style.display = 'none';
-
-        setTimeout(() => {
-            document.getElementById("playAgainBtn").style.display = "block";
-        }, 3000);
     }
 }
 
