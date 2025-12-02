@@ -82,7 +82,6 @@ if (volumeSlider && gameMusic) {
         gameMusic.volume = volume / 100;
         localStorage.setItem('musicVolume', volume);
         
-        // También actualizar el volumen de todos los efectos de sonido
         const soundEffects = ['leverSound', 'loseSound', 'winnerSound', 'coinsSound'];
         soundEffects.forEach(id => {
             const sound = document.getElementById(id);
